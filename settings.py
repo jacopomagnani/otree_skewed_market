@@ -2,15 +2,8 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-       name='otree_multiple_asset_market',
-       display_name='Multiple Asset Market',
-       num_demo_participants=2,
-       app_sequence=['otree_multiple_asset_market'],
-       config_file='demo.csv',
-    ),
-    dict(
        name='otree_etf_cda',
-       display_name='Market with ETF',
+       display_name='Market Experiment',
        num_demo_participants=2,
        app_sequence=['otree_etf_cda'],
        session_config='demo.txt',
