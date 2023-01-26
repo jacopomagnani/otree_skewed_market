@@ -5,20 +5,20 @@
 # number of players in each group or null if there's only one group
 players_per_group: null
 # starting cash endowment for each player
-cash_endowment: 20
+cash_endowment: 1000
 # the amount of the endowment which is a loan
-loan_value: 10
+loan_value: 0
 # whether or not players are allowed to have negative available cash
 allow_short_cash: true
 # the amount of cash that players are allowed to borrow when short selling
-short_limit_cash: 10
+short_limit_cash: 100
 # the length of the round in seconds
-period_length: 10
+period_length: 480
 # a multiplier used to change the way currency is displayed to players.
 # prices are integers, so all prices are divided by this number before being shown to players.
 # a scale of 1000 means that the smallest price a player can enter is 1/1000 or 0.001.
 # this should be a power of 10. it'd probably do weird things if it wasn't
-currency_scale: 1000
+currency_scale: 1
 # whether or not arbitrage bots are enabled
 bots_enabled: false
 # the round which is counted for final payoff
@@ -49,7 +49,7 @@ asset_structure:
     # whether or not this is an etf asset
     is_etf: false
     # initial endowment of this asset
-    endowment: [1, 2]
+    endowment: [5, 3, 2]
     # the state-dependent payoffs for this asset
     # only specified when asset ISN'T an etf
     payoffs:
@@ -61,7 +61,7 @@ asset_structure:
     allow_short: false
     short_limit: 10
     is_etf: false
-    endowment: [1, 4]
+    endowment: [80, 100, 120]
     payoffs:
       X: 120
       Y: 80
@@ -71,10 +71,10 @@ asset_structure:
     allow_short: true
     short_limit: 10
     is_etf: false
-    endowment: 5
+    endowment: [0, 0, 0]
     payoffs:
-      X: 1
-      Y: 1
-      Z: 1
-      W: 1
+      X: 100
+      Y: 100
+      Z: 100
+      W: 100
 
