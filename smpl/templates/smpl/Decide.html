@@ -20,13 +20,13 @@
         <td></td>
         <td align="left"><b>Option B</b></td>
     </tr>
-    {% for amount in right_side_amounts %}
+    {% for amount in left_side_amounts %}
     <tr>
         <td align="right">
-            <b>{{ player.left_side_amount }}</b> now
+            {{ amount }}
         <td align="middle">
             <input type="radio"
-                   value="left"
+                   value="left" data-amount="{{ amount }}"
                    name="{{ amount }}"
                    required>&nbsp;&nbsp;
             <input type="radio"
@@ -35,7 +35,8 @@
                    required>
         </td>
         <td align="left">
-            <b>{{ amount }} </b> next month
+            {{ lottery_payoff_big }} with probability {{ lottery_prob_big }} and {{ lottery_payoff_small }} otherwise
+        </td>
     </tr>
     {% endfor %}
 </table>

@@ -8,7 +8,12 @@ class Decide(Page):
     form_fields = ['switching_point']
 
     def vars_for_template(self):
-        return dict(right_side_amounts=range(10, 21, 1))
+        return {'left_side_amounts': range(100, -1, -10),
+                'right_side_amount': 10,
+                'lottery_payoff_big': Constants.lottery_payoff_big[self.round_number-1],
+                'lottery_payoff_small': Constants.lottery_payoff_small[self.round_number - 1],
+                'lottery_prob_big': Constants.lottery_prob_big[self.round_number - 1]
+                }
 
 
 class Results(Page):
