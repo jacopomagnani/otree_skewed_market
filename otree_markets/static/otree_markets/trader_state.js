@@ -188,15 +188,25 @@ export class TraderState extends PolymerElement {
             }
             this._remove_order(making_order)
         }
+        // record trade only if there are at least two different players involved in the trade
+        // i.e. do not record trade with only one's self
+        let self_trade = 1;
+        for (const making_order of trade.making_orders) {
+            if (making_order.pcode != trade.taking_order.pcode) {
+             self_trade = 0;
+             break;
+            }
+        }
+        if (self_trade == 0) {
+            // sorted insert trade into trades list
+            let i = 0;
+            for (; i < this.trades.length; i++)
+                if (this.trades[i].timestamp < trade.timestamp)
+                    break;
+            this.splice('trades', i, 0, trade);
 
-        // sorted insert trade into trades list
-        let i = 0;
-        for (; i < this.trades.length; i++)
-            if (this.trades[i].timestamp < trade.timestamp)
-                break;
-        this.splice('trades', i, 0, trade);
-
-        this.dispatchEvent(new CustomEvent('confirm-trade', {detail: trade, bubbles: true, composed: true}));
+            this.dispatchEvent(new CustomEvent('confirm-trade', {detail: trade, bubbles: true, composed: true}));
+        }
     }
 
     // handle an incoming cancel confirmation message
