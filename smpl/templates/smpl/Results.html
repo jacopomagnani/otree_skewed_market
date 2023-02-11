@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+    <p>Your switching point was {{ player.switching_point }}</p>
+
+    {% next_button %}
+{% endblock %}
+
+
