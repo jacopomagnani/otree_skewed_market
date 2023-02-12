@@ -6,7 +6,53 @@
 {% endblock %}
 
 {% block content %}
-    <p>Your switching point was {{ player.switching_point }}</p>
+
+    <p>The following decision was selected for payment:</p>
+
+
+<table class="table table-striped">
+    <colgroup>
+        <col width="45%">
+        <col width="10%">
+        <col width="45%">
+    </colgroup>
+    <tr>
+        <td align="right"><b>Option A</b></td>
+        <td></td>
+        <td align="left"><b>Option B</b></td>
+    </tr>
+    <tr>
+        <td align="right">
+            {{ left_side_amounts }}
+        <td align="middle">
+        {% if chosen_sure %}
+            <input type="radio"
+                   value="left"
+                   name="{{ left_side_amounts }}"
+                   checked>&nbsp;&nbsp;
+            <input type="radio"
+                   name="{{ left_side_amounts }}"
+                   value="right"
+                   disabled>
+        {% else %}
+            <input type="radio"
+                   value="left"
+                   name="{{ left_side_amounts }}"
+                   disabled>&nbsp;&nbsp;
+            <input type="radio"
+                   name="{{ left_side_amounts }}"
+                   value="right"
+                   checked>
+        {% endif %}
+        </td>
+        <td align="left">
+            {{ lottery_payoff_big }} with probability {{ lottery_prob_big }}% or {{ lottery_payoff_small }} with probability {{ lottery_prob_small }}%
+        </td>
+    </tr>
+</table>
+
+    <p>Your payoff is {{ final_payoff }}</p>
+
 
     {% next_button %}
 {% endblock %}
