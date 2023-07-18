@@ -22,7 +22,7 @@ class Subsession(markets_models.Subsession):
     
     def asset_names(self):
         return list(self.config.asset_structure.keys())
-    
+
     def do_grouping(self):
         ppg = self.config.players_per_group
         # if ppg is None, just use the default grouping where everyone is in one group
@@ -41,6 +41,7 @@ class Subsession(markets_models.Subsession):
         if self.config.bots_enabled:
             for group in self.get_groups():
                 group.create_bots()
+        self.group_randomly()
         return super().creating_session()
 
 
