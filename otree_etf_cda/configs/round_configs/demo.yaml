@@ -3,7 +3,7 @@
 # if an endowment list is shorter than the number of players in the group, endowments wrap back around to the beginning
 
 # number of players in each group or null if there's only one group
-players_per_group: null
+players_per_group: 3
 # starting cash endowment for each player
 cash_endowment: 1000
 # the amount of the endowment which is a loan
@@ -49,7 +49,7 @@ asset_structure:
     # whether or not this is an etf asset
     is_etf: false
     # initial endowment of this asset
-    endowment: [5, 3, 2]
+    endowment: [5, 3]
     # the state-dependent payoffs for this asset
     # only specified when asset ISN'T an etf
     payoffs:
@@ -61,7 +61,7 @@ asset_structure:
     allow_short: false
     short_limit: 10
     is_etf: false
-    endowment: [80, 100, 120]
+    endowment: [80, 100]
     payoffs:
       X: 120
       Y: 80
@@ -71,7 +71,7 @@ asset_structure:
     allow_short: true
     short_limit: 10
     is_etf: false
-    endowment: [0, 0, 0]
+    endowment: [0, 0]
     payoffs:
       X: 100
       Y: 100
