@@ -47,7 +47,8 @@ class Subsession(markets_models.Subsession):
 
 class Group(markets_models.Group):
 
-    realized_state = models.StringField()
+    state_a = models.IntegerField()
+    state_b = models.IntegerField()
 
     def get_player(self, pcode):
         if pcode_is_bot(pcode):
@@ -69,11 +70,11 @@ class Group(markets_models.Group):
         return self.subsession.config.period_length
     
     def do_realized_state_draw(self):
-        states = self.subsession.config.states
-        state_names = list(states.keys())
-        weights = [e['prob_weight'] for e in states.values()]
-        self.realized_state = random.choices(state_names, weights)[0]
-    
+        structure = self.subsession.config.asset_structure
+        self.state_a = random.choices([0, 1], weights=structure["A"]["probabilities"], k=1)[0]
+        self.state_b = random.choices([0, 1], weights=structure["B"]["probabilities"], k=1)[0]
+
+
     def set_payoffs(self):
         self.do_realized_state_draw()
         for player in self.get_players():
@@ -132,17 +133,12 @@ class Player(markets_models.Player):
     
     def set_payoff(self):
         config = self.subsession.config
-        realized_state = self.group.realized_state
-        for asset_name, structure in config.asset_structure.items():
-            if structure['is_etf']:
-                asset_value = 0
-                for component_asset, weight in structure['etf_weights'].items():
-                    asset_value += config.asset_structure[component_asset]['payoffs'][realized_state] * weight
-                self.payoff += asset_value * self.settled_assets[asset_name]
-            else:
-                asset_value = structure['payoffs'][realized_state]
-                self.payoff += asset_value * self.settled_assets[asset_name]
-        
+        structure = config.asset_structure
+        value_a = structure["A"]["mypayoffs"][self.group.state_a]
+        value_b = structure["B"]["mypayoffs"][self.group.state_b]
+        value_c = structure["C"]["mypayoffs"][0]
+        self.payoff += value_a * self.settled_assets["A"] + value_b * self.settled_assets["B"] + value_c * self.settled_assets["C"]
+
         # add cash gains/losses
         self.payoff += (self.settled_cash / config.currency_scale) - config.loan_value
 

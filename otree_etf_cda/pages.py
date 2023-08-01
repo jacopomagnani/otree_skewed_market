@@ -30,9 +30,17 @@ class Results(Page):
         return self.round_number <= self.subsession.config.num_rounds
 
     def vars_for_template(self):
+        config = self.subsession.config
+        structure = config.asset_structure
+        value_a = structure["A"]["mypayoffs"][self.group.state_a]
+        value_b = structure["B"]["mypayoffs"][self.group.state_b]
+        value_c = structure["C"]["mypayoffs"][0]
         final_cash = self.player.settled_cash / self.subsession.config.currency_scale
         return {
             'final_cash': final_cash,
+            'A_payoff': value_a,
+            'B_payoff': value_b,
+            'C_payoff': value_c,
         }
 
 
