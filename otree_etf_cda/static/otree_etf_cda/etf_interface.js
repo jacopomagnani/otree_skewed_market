@@ -239,7 +239,7 @@ class ETFInterface extends PolymerElement {
             return;
 
         const price_scaled = this.$.currency_scaler.toHumanReadable(order.price);
-        this.$.modal.modal_text = `Do you want to ${order.is_bid ? 'sell' : 'buy'} asset ${order.asset_name} for $${price_scaled}?`
+        this.$.modal.modal_text = `Do you want to ${order.is_bid ? 'sell' : 'buy'} asset ${order.asset_name} for ${price_scaled}?`
         this.$.modal.on_close_callback = (accepted) => {
             if (!accepted)
                 return;

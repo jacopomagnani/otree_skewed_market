@@ -19,13 +19,13 @@
             {% for amount in player.settled_assets.values %}
             <td>{{ amount}}</td>
             {% endfor %}
-            <td>${{ final_cash }}</td>
+            <td>{{ final_cash }}</td>
         </tr>
     </table>
 
     <div>
         <span class="font-weight-bold">Loan amount:</span>
-        <span>${{subsession.config.loan_value}}</span>
+        <span>{{subsession.config.loan_value}}</span>
     </div>
     <div>
         <span class="font-weight-bold">Realized state:</span>

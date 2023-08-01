@@ -134,7 +134,7 @@ class AssetCell extends PolymerElement {
 
         this.orderDisplayFormat = order => {
             const price = this.$.currency_scaler.toHumanReadable(order.price);
-            return '$' + price;
+            return price;
         };
         this.tradeDisplayFormat = (making_order, taking_order) => {
             // booleans. true if this player bought/sold in this trade
@@ -150,7 +150,7 @@ class AssetCell extends PolymerElement {
 
             const price = this.$.currency_scaler.toHumanReadable(making_order.price);
 
-            return `$${price}${buy_sell_indicator}`
+            return `${price}${buy_sell_indicator}`
         };
     }
 

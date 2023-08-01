@@ -123,8 +123,8 @@ class HoldingsTable extends PolymerElement {
                         <span>Available Cash:</span>
                     </div>
                     <div>
-                        <span>$[[_currencyToHumanReadable(settledCash)]]</span>
-                        <span>$[[_currencyToHumanReadable(availableCash)]]</span>
+                        <span>[[_currencyToHumanReadable(settledCash)]]</span>
+                        <span>[[_currencyToHumanReadable(availableCash)]]</span>
                     </div>
                 </div>
             </div>
