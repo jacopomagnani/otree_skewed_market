@@ -40,60 +40,84 @@ class PayoffTable extends PolymerElement {
                     flex-direction: column;
                 }
                 .table > :first-child {
-                    border-right: 1px solid black;
-                    text-align: right;
-                    font-weight: bold;
+                    text-align: center;
                 }
                 .table > div > :first-child{
-                    border-bottom: 1px solid black;
                 }
                 .table span {
                     padding: 0 0.5em 0 0.5em;
                     height: 1.5em;
+                    border: 1px solid black;
                 }
+                .mytable {
+                    display: flex;
+                    flex-direction: row;
+                }
+
+
             </style>
 
-            <div class="container">
-                <div class="table">
-                    <div>
-                        <span>State</span>
-                        <span>Probability</span>
-                        <template is="dom-repeat" items="{{assetNames}}" as="assetName">
-                            <span>[[assetName]] Payoff</span>
-                        </template>
-                    </div>
-                    <template is="dom-repeat" items="{{stateNames}}" as="stateName">
+            <div class="mytable">
+                <div class="container">
+                    <span>Asset A</span>
+                    <div class="table">
                         <div>
-                            <span>[[stateName]]</span>
-                            <span>[[_getProbability(stateName, stateProbabilities)]]</span>
-                            <template is="dom-repeat" items="{{assetNames}}" as="assetName">
-                                <span>[[_getPayoff(assetName, stateName, assetStructure)]]</span>
-                            </template>
+                            <span>Payoff</span>
+                            <span>Chance</span>
                         </div>
-                    </template>
+                        <div>
+                            <span>[[_getPayoff("A", 0, assetStructure)]]</span>
+                            <span>[[_getProbability("A", 0, assetStructure)]]</span>
+                        </div>
+                        <div>
+                            <span>[[_getPayoff("A", 1, assetStructure)]]</span>
+                            <span>[[_getProbability("A", 1, assetStructure)]]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <span>Asset B</span>
+                    <div class="table">
+                        <div>
+                            <span>Payoff</span>
+                            <span>Chance</span>
+                        </div>
+                        <div>
+                            <span>[[_getPayoff("B", 0, assetStructure)]]</span>
+                            <span>[[_getProbability("B", 0, assetStructure)]]</span>
+                        </div>
+                        <div>
+                            <span>[[_getPayoff("B", 1, assetStructure)]]</span>
+                            <span>[[_getProbability("B", 1, assetStructure)]]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <span>Asset C</span>
+                    <div class="table">
+                        <div>
+                            <span>Payoff</span>
+                            <span>Chance</span>
+                        </div>
+                        <div>
+                            <span>[[_getPayoff("C", 0, assetStructure)]]</span>
+                            <span>[[_getProbability("C", 0, assetStructure)]]</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
+
+
             
         `;
     }
 
     _computeStateNames(stateProbabilities) {
         return Object.keys(stateProbabilities);
-    }
-
-    _getProbability(state, stateProbabilities) {
-        if (!stateProbabilities)
-            return '';
-        let num = stateProbabilities[state];
-        if (num == 0)
-            return '0';
-        let denom = Object.values(stateProbabilities).reduce((a, b) => a + b, 0);
-        if (num == denom)
-            return '1';
-        const divisor = gcd(num, denom);
-        num /= divisor;
-        denom /= divisor;
-        return `${num}/${denom}`;
     }
 
     _getPayoff(assetName, state, assetStructure) {
@@ -108,7 +132,23 @@ class PayoffTable extends PolymerElement {
             return payoff;
         }
         else {
-            return assetStructure[assetName].payoffs[state];
+            return assetStructure[assetName].mypayoffs[state];
+        }
+    }
+
+        _getProbability(assetName, state, assetStructure) {
+        if (!assetStructure)
+            return;
+        const structure = assetStructure[assetName];
+        if (structure.is_etf) {
+            let payoff = 0;
+            for (const [componentAsset, weight] of Object.entries(structure.etf_weights)) {
+                payoff += assetStructure[componentAsset].payoffs[state] * weight;
+            }
+            return payoff;
+        }
+        else {
+            return assetStructure[assetName].probabilities[state];
         }
     }
 

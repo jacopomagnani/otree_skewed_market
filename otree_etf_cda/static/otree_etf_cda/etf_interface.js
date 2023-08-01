@@ -156,14 +156,12 @@ class ETFInterface extends PolymerElement {
                                     asks="[[asks]]"
                                 ></holdings-table>
                             </div>
-                            <div class="border flex-fill nav-container">
-                                <template is="dom-repeat" items="{{assetNames}}" as="assetName" filter="_filter_etf_names">
-                                    <nav-display
-                                        asset-structure="[[assetStructure]]"
-                                        etf-asset-name="[[assetName]]"
-                                        trades='[[trades]]'
-                                    ></nav-display>
-                                </template>
+                            <div class="border ">
+                                <payoff-table
+                                    asset-structure="[[assetStructure]]"
+                                    state-probabilities="[[stateProbabilities]]"
+                                    asset-names="[[assetNames]]"
+                                ></payoff-table>
                             </div>
                             <div class="border flex-fill time-display">
                                 <div>
@@ -172,20 +170,9 @@ class ETFInterface extends PolymerElement {
                                 </div>
                             </div>
                         </div>
-                        <div class="border flex-fill">
-                            <event-log
-                                id="log"
-                                max-entries=100
-                            ></event-log>
-                        </div>
+
                     </div>
-                    <div class="border">
-                        <payoff-table
-                            asset-structure="[[assetStructure]]"
-                            state-probabilities="[[stateProbabilities]]"
-                            asset-names="[[assetNames]]"
-                        ></payoff-table>
-                    </div>
+
                 </div>
             </div>
         `;
