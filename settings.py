@@ -4,7 +4,7 @@ SESSION_CONFIGS = [
     dict(
        name='otree_etf_cda',
        display_name='Market Experiment',
-       num_demo_participants=6,
+       num_demo_participants=2,
        app_sequence=['otree_etf_cda', 'smpl'],
        session_config='demo.txt',
     ),
