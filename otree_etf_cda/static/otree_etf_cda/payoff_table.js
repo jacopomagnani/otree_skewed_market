@@ -67,11 +67,11 @@ class PayoffTable extends PolymerElement {
                         </div>
                         <div>
                             <span>[[_getPayoff("A", 0, assetStructure)]]</span>
-                            <span>[[_getProbability("A", 0, assetStructure)]]</span>
+                            <span>[[_getProbability("A", 0, assetStructure)]]%</span>
                         </div>
                         <div>
                             <span>[[_getPayoff("A", 1, assetStructure)]]</span>
-                            <span>[[_getProbability("A", 1, assetStructure)]]</span>
+                            <span>[[_getProbability("A", 1, assetStructure)]]%</span>
                         </div>
                     </div>
                 </div>
@@ -85,11 +85,11 @@ class PayoffTable extends PolymerElement {
                         </div>
                         <div>
                             <span>[[_getPayoff("B", 0, assetStructure)]]</span>
-                            <span>[[_getProbability("B", 0, assetStructure)]]</span>
+                            <span>[[_getProbability("B", 0, assetStructure)]]%</span>
                         </div>
                         <div>
                             <span>[[_getPayoff("B", 1, assetStructure)]]</span>
-                            <span>[[_getProbability("B", 1, assetStructure)]]</span>
+                            <span>[[_getProbability("B", 1, assetStructure)]]%</span>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ class PayoffTable extends PolymerElement {
                         </div>
                         <div>
                             <span>[[_getPayoff("C", 0, assetStructure)]]</span>
-                            <span>[[_getProbability("C", 0, assetStructure)]]</span>
+                            <span>[[_getProbability("C", 0, assetStructure)]]%</span>
                         </div>
                     </div>
                 </div>
