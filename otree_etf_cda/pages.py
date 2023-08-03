@@ -2,6 +2,25 @@ from ._builtin import Page, WaitPage
 from otree_markets.pages import BaseMarketPage
 import json
 
+
+class Intro(Page):
+
+    def vars_for_template(self):
+        config = self.subsession.config
+        structure = config.asset_structure
+        endowment_cash = self.player.cash_endowment()
+        endowment_a = self.player.asset_endowment()["A"]
+        endowment_b = self.player.asset_endowment()["B"]
+        endowment_c = self.player.asset_endowment()["C"]
+        return {
+            'endowment_cash': endowment_cash,
+            'endowment_A': endowment_a,
+            'endowment_B': endowment_b,
+            'endowment_C': endowment_c,
+            'structure': structure
+        }
+
+
 class Market(BaseMarketPage):
 
     def is_displayed(self):
@@ -44,4 +63,4 @@ class Results(Page):
         }
 
 
-page_sequence = [Market, ResultsWaitPage, Results]
+page_sequence = [Intro, Market, ResultsWaitPage, Results]
