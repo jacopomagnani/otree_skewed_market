@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Questions
+{% endblock %}
+
+{% block content %}
+
+<p>Before playing the game, please answer the following questions.</p>
+
+<p>Question</p>
+    {% formfield player.answer1 label="Your answer"%}
+
+    {% next_button %}
+
+{% endblock %}
