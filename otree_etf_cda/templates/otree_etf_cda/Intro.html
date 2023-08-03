@@ -1,0 +1,110 @@
+{% extends "otree/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Market round {{subsession.round_number}}
+{% endblock %}
+
+{% block content %}
+    <p>In this market round, the assets have the following payoffs:</p>
+
+    <div class="row" align="center">
+        <div class="column">
+            <table>
+                <tr>
+                    <td colspan="3">Asset A</td>
+                </tr>
+              <tr>
+                <td>Payoff</td>
+                <td>{{structure.A.mypayoffs.0}}</td>
+                  <td>{{structure.A.mypayoffs.1}}</td>
+              </tr>
+              <tr>
+                <td>Chance</td>
+                <td>{{structure.A.probabilities.0}}%</td>
+                  <td>{{structure.A.probabilities.1}}%</td>
+              </tr>
+            </table>
+        </div>
+        <div class="column">
+            <table>
+                <tr>
+                    <td colspan="3">Asset B</td>
+                </tr>
+              <tr>
+                <td>Payoff</td>
+                <td>{{structure.B.mypayoffs.0}}</td>
+                  <td>{{structure.B.mypayoffs.1}}</td>
+              </tr>
+              <tr>
+                <td>Chance</td>
+                <td>{{structure.B.probabilities.0}}%</td>
+                  <td>{{structure.B.probabilities.1}}%</td>
+              </tr>
+            </table>
+        </div>
+        <div class="column">
+            <table>
+                <tr>
+                    <td colspan="3">Asset C</td>
+                </tr>
+              <tr>
+                <td>Payoff</td>
+                <td>{{structure.C.mypayoffs.0}}</td>
+              </tr>
+              <tr>
+                <td>Chance</td>
+                <td>{{structure.C.probabilities.0}}%</td>
+              </tr>
+            </table>
+        </div>
+    </div>
+
+    <br>
+    <p>You will start this market round with the following endowments:</p>
+
+    <table align="center">
+        <tr>
+            <td>Cash</td>
+            <td>Asset A</td>
+            <td>Asset B</td>
+            <td>Asset C</td>
+        </tr>
+        <tr>
+            <td>{{endowment_cash}}</td>
+            <td>{{endowment_A}}</td>
+            <td>{{endowment_B}}</td>
+            <td>{{endowment_C}}</td>
+        </tr>
+    </table>
+
+    <br>
+    <p>After you and the other participants have clicked on the 'Next' button, the market round will start.</p>
+
+
+    {% next_button %}
+{% endblock %}
+
+{% block styles %}
+    <style>
+        tablex, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+        .row {
+          display: flex;
+          margin-left:-5px;
+          margin-right:-5px;
+        }
+
+        .column {
+          flex: 30%;
+          padding: 5px;
+        }
+    </style>
+
+{% endblock %}
