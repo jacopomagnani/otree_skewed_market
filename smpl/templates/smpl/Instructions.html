@@ -2,54 +2,22 @@
 {% load otree static %}
 
 {% block title %}
-    Instructions
+    Part 2: Instructions
 {% endblock %}
 
 {% block content %}
-
-    <p>
-        In this task you will be asked to make a series of choices.
-        You will see 15 tables, each consisting of 11 rows.
-        An example is shown below.
-    </p>
-
-    <p>
-        Each row has two options, of which you must choose one: 'Option A' or 'Option B'.
-        Option A gives you a sure payoff.
-        Option B gives you one of two possible payoffs, each with some probability.
-        In the example above, option B gives a certain payoff with a 33% chance and
-        another payoff with a 67% chance.
-        Option B is the same for all 11 rows in a given table,
-        but option B changes from table to table.
-    </p>
-    <p>
-        In each line, you will be asked to indicate whether you prefer option A or option B.
-        The computer will help you make your choices by avoiding mistakes.
-        For example, if you select 'Option A' for a given line,
-        the computer will mark 'Option A' for all previous lines (up to the first).
-        Similarly, if you select 'Option B' for a line,
-        the computer will mark 'Option B' for all subsequent lines (up to the last one).
-    </p>
-
-    <p>When the experiment is over,
-        only one row from all the rows in all the tables will be randomly selected for payment.
-        Thus, each line has the same probability of being chosen for the payouts,
-        so you should pay equal attention to all your choices.
-    </p>
-
-    <p>
-        Let's assume that the following line has been chosen for the payment calculation:
-    </p>
-
-    <p>
-        If you selected 'Option A' for this line, you will win 70 cents.
-        If you selected 'Option B' for this line, the computer will randomly choose a number between 1 and 3 to determine your winnings.
-        If the randomly selected number is 1 (33% chance), you will win 100 cents.
-        If the randomly chosen number is 2 or 3 (67% chance), you will win 50 cents.
-    </p>
-    <p>You are now ready to make your choices.</p>
-
+ <iframe src="https://docs.google.com/gview?url=https://github.com/jacopomagnani/DynPort_instructions/raw/master/Instructions_part1.pdf&embedded=true" frameborder="0"></iframe>
     {% next_button %}
+{% endblock %}
+
+{% block styles %}
+    <style>
+        iframe {
+            width: 100%;
+            height: 85vh;
+            padding-bottom: 15px;
+        }
+    </style>
 {% endblock %}
 
 
