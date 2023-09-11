@@ -10,7 +10,7 @@ from .bots import ETFMakerBot, pcode_is_bot
 class Constants(BaseConstants):
     name_in_url = 'otree_etf_cda'
     players_per_group = None
-    num_rounds = 99 
+    num_rounds = 3
 
 
 class Subsession(markets_models.Subsession):
