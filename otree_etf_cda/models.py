@@ -41,7 +41,6 @@ class Subsession(markets_models.Subsession):
         if self.config.bots_enabled:
             for group in self.get_groups():
                 group.create_bots()
-        self.group_randomly()
         return super().creating_session()
 
 
