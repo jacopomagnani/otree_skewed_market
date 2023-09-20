@@ -7,11 +7,40 @@
 
 {% block content %}
 
-<p>Before playing the game, please answer the following questions.</p>
+<p>Before continuing, please answer the following questions.</p>
 
-<p>Question</p>
-    {% formfield player.answer1 label="Your answer"%}
 
-    {% next_button %}
+<table>
+  <tr>
+    <td>{% formfield player.answer label="Which of the following statements is correct?"%}</td>
+  </tr>
+</table>
 
+<br>
+
+{% next_button %}
+
+{% endblock %}
+
+
+{% block styles %}
+<style>
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 75%;
+    }
+
+td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 {% endblock %}

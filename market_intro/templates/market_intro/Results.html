@@ -7,8 +7,83 @@
 
 {% block content %}
 
-<p>You are now ready to participate in the market.</p>
+{% if player.num_correct == 1%}
+<p>You answered 1 question correctly.</p>
+{% else %}
+<p>You answered {{player.num_correct}} questions correctly.</p>
+{% endif %}
+
+<p>Below is a summary of the correct answers.</p>
+<p>Right answers are typed in <b>bold</b> fonts. If some of your answers were wrong, they are <mark>highlighted</mark>.</p>
+
+<table>
+    {% for q1, q2, q3, q4, correct_answer, actual_answer in questions %}
+  <tr>
+    <td>
+        <p>Which of the following statements is correct?</p>
+        <input  name="q1" type="radio" id="q1" disabled>
+        {% if correct_answer == 1 %}
+            <label for= "q1"> <b>{{q1}}</b> </label>
+        {% elif actual_answer == 1 %}
+            <label for= "q1"> <mark>{{q1}}</mark> </label>
+        {% else %}
+        <label for= "q1"> {{q1}} </label>
+        {% endif %}
+        <br>
+        <input  name="q2" type="radio" id="q2" disabled>
+        {% if correct_answer == 2 %}
+            <label for= "q2"> <b>{{q2}}</b> </label>
+        {% elif actual_answer == 2 %}
+            <label for= "q2"> <mark>{{q2}}</mark> </label>
+        {% else %}
+        <label for= "q2"> {{q2}} </label>
+        {% endif %}
+        <br>
+        <input  name="q3" type="radio" id="q3" disabled>
+        {% if correct_answer == 3 %}
+            <label for= "q3"> <b>{{q3}}</b> </label>
+        {% elif actual_answer == 3 %}
+            <label for= "q3"> <mark>{{q3}}</mark> </label>
+        {% else %}
+        <label for= "q3"> {{q3}} </label>
+        {% endif %}
+        <br>
+        <input  name="q4" type="radio" id="q4" disabled>
+        {% if correct_answer == 4 %}
+            <label for= "q4"> <b>{{q4}}</b> </label>
+        {% elif actual_answer == 4 %}
+            <label for= "q4"> <mark>{{q4}}</mark> </label>
+        {% else %}
+        <label for= "q4"> {{q4}} </label>
+        {% endif %}
+    </td>
+  </tr>
+    {% endfor %}
+</table>
+    <br>
     {% next_button %}
 {% endblock %}
 
 
+
+{% block styles %}
+<style>
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 75%;
+    }
+
+td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+{% endblock %}
