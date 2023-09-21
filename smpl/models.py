@@ -47,7 +47,7 @@ class Player(BasePlayer):
         paying_round = self.participant.vars['mpl_paying_round']
         paying_row = self.participant.vars['mpl_paying_row']
         if self.round_number == paying_round:
-            if self.switching_point < Constants.sure_payoffs[paying_round - 1]:
+            if self.switching_point < Constants.sure_payoffs[paying_row - 1]:
                 self.payoff = c(Constants.sure_payoffs[paying_row - 1])
             else:
                 this_lottery_payoff_big = Constants.lottery_payoff_big[paying_round - 1]
