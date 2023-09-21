@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+
+
+{% formfield player.finance_q1%}
+
+{% formfield player.finance_q2%}
+
+{% formfield player.finance_q3%}
+
+{% formfield player.finance_q4%}
+
+{% formfield player.finance_q5%}
+
+
+
+    {% next_button %}
+
+{% endblock %}

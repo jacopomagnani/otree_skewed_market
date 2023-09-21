@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+
+{{player.crt_num_correct}}
+{{player.finance_num_correct}}
+
+
+    {% next_button %}
+{% endblock %}
+
+

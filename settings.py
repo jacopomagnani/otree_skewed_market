@@ -2,11 +2,11 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-       name='SkewedAssetExperiment',
-       display_name='Market Experiment',
-       num_demo_participants=4,
-       app_sequence=['market_intro', 'otree_etf_cda', 'smpl'],
-       session_config='demo.txt',
+        name='SkewedAssetExperiment',
+        display_name='Market Experiment',
+        num_demo_participants=4,
+        app_sequence=['market_intro', 'otree_etf_cda', 'smpl', 'questionnaire'],
+        session_config='demo.txt',
     ),
     # dict(
     #    name='public_goods',

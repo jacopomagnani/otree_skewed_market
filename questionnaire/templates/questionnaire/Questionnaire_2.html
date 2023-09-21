@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+
+{% formfield player.crt_q1%}
+
+{% formfield player.crt_q2%}
+
+{% formfield player.crt_q3%}
+
+{% formfield player.crt_q4%}
+
+    {% next_button %}
+
+{% endblock %}
