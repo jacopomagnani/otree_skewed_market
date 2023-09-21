@@ -2,21 +2,59 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    Questionnaire - Part 1
 {% endblock %}
 
 {% block content %}
+<p>Please answer the following questions.</p>
 
-{% formfield player.demographics_gender%}
-
-{% formfield player.demographics_age%}
-
-{% formfield player.demographics_field%}
-
-{% formfield player.demographics_traded%}
-
-
+<table>
+    <tr>
+        <td>
+            {% formfield player.demographics_gender%}
+        </td>
+    </tr>
+    <tr>
+    <td>
+        {% formfield player.demographics_age%}
+    </td>
+    </tr>
+    <tr>
+    <td>
+        {% formfield player.demographics_field%}
+    </td>
+    </tr>
+    <tr>
+    <td>
+        {% formfield player.demographics_traded%}
+    </td>
+    </tr>
+</table>
+<br>
 
     {% next_button %}
 
+{% endblock %}
+
+
+{% block styles %}
+<style>
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 75%;
+    }
+
+td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 {% endblock %}

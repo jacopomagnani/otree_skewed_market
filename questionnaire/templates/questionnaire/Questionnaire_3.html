@@ -1,25 +1,65 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
+
 {% block title %}
-    Page title
+    Questionnaire - Part 3
 {% endblock %}
 
 {% block content %}
+<p>Please answer the following questions.</p>
 
-
-{% formfield player.finance_q1%}
-
-{% formfield player.finance_q2%}
-
-{% formfield player.finance_q3%}
-
-{% formfield player.finance_q4%}
-
-{% formfield player.finance_q5%}
-
-
+<table>
+    <tr>
+        <td>
+            {% formfield player.finance_q1%}
+        </td>
+    </tr>
+    <tr>
+    <td>
+        {% formfield player.finance_q2%}
+    </td>
+    </tr>
+    <tr>
+    <td>
+        {% formfield player.finance_q3%}
+    </td>
+    </tr>
+    <tr>
+    <td>
+        {% formfield player.finance_q4%}
+    </td>
+    </tr>
+    <tr>
+    <td>
+        {% formfield player.finance_q5%}
+    </td>
+    </tr>
+</table>
+<br>
 
     {% next_button %}
 
+{% endblock %}
+
+{% block styles %}
+<style>
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 75%;
+    }
+
+td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 {% endblock %}
