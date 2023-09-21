@@ -2,7 +2,7 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-       name='Skewed Asset Experiment ',
+       name='SkewedAssetExperiment',
        display_name='Market Experiment',
        num_demo_participants=4,
        app_sequence=['market_intro', 'otree_etf_cda', 'smpl'],
