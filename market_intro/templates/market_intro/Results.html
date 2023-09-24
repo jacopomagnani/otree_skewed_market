@@ -8,13 +8,13 @@
 {% block content %}
 
 {% if player.num_correct == 1%}
-<p>You answered 1 question correctly.</p>
+<p>You answered 1 question out of 7 correctly.</p>
 {% else %}
-<p>You answered {{player.num_correct}} questions correctly.</p>
+<p>You answered {{player.num_correct}} questions out of 7 correctly.</p>
 {% endif %}
 
-<p>Below is a summary of the correct answers.</p>
-<p>Right answers are typed in <b>bold</b> fonts. If some of your answers were wrong, they are <mark>highlighted</mark>.</p>
+<p>You can see the correct answers below.</p>
+<p>Correct answers are typed in <b>bold</b> fonts. If some of your answers were wrong, they are <mark>highlighted</mark>.</p>
 
 <table>
     {% for q1, q2, q3, q4, correct_answer, actual_answer in questions %}
