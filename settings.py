@@ -5,7 +5,7 @@ SESSION_CONFIGS = [
         name='otree_etf_cda',
         display_name='Market Experiment',
         num_demo_participants=4,
-        app_sequence=['introduction', 'market_intro', 'otree_etf_cda', 'smpl', 'questionnaire'],
+        app_sequence=['introduction', 'market_intro', 'otree_etf_cda', 'smpl', 'questionnaire', 'finalpage'],
         session_config='demo.txt',
     ),
     # dict(
@@ -22,7 +22,7 @@ SESSION_CONFIGS = [
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
+    real_world_currency_per_point=1.00, participation_fee=5.00, doc=""
 )
 
 # ISO-639 code

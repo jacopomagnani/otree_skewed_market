@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    The end
+{% endblock %}
+
+{% block content %}
+
+<p>
+    The experiment is over.
+</p>
+
+<p>
+    Your total score is: {{player.participant.payoff}}.
+</p>
+
+<p>
+    Your total score converted in euros is: &euro;{{rate}} <span>&times;</span> (your total score) = {{total_payoff_in_currency}}.
+</p>
+
+
+<p>
+    Your score in euros plus the show-up fee of {{fee}} is: {{raw_payment}}
+</p>
+
+
+
+
+{% endblock %}
