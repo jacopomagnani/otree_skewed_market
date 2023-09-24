@@ -11,6 +11,7 @@ class Questionnaire_1(Page):
 class Questionnaire_2(Page):
     form_model = 'player'
     form_fields = ['crt_q1', 'crt_q2', 'crt_q3', 'crt_q4']
+    timeout_seconds = 180
 
     def before_next_page(self):
         self.player.get_crt_outcome()
@@ -19,6 +20,7 @@ class Questionnaire_2(Page):
 class Questionnaire_3(Page):
     form_model = 'player'
     form_fields = ['finance_q1', 'finance_q2', 'finance_q3', 'finance_q4', 'finance_q5']
+    timeout_seconds = 180
 
     def before_next_page(self):
         self.player.get_finance_outcome()
