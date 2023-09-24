@@ -63,4 +63,16 @@ class Results(Page):
         }
 
 
-page_sequence = [Intro, Market, ResultsWaitPage, Results]
+class FinalResult(Page):
+
+    def is_displayed(self):
+        return self.round_number == self.subsession.config.num_rounds
+
+    def vars_for_template(self):
+        return {
+            'market_payoff': self.player.in_round(self.subsession.config.pay_round).payoff
+        }
+
+
+
+page_sequence = [Intro, Market, ResultsWaitPage, Results, FinalResult]
