@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block content %}
+<p>
+    Welcome!
+    Thank you for participating in this experiment.
+</p>
+<p>
+    Please turn off your cell phone and do not communicate with other participants until the end of the session.
+    If you have any questions, you can raise your hand or press the red button on the side of your desk at any time.
+    We will come to answer you individually.
+    </p>
+<p>
+    During this session you will make several decisions. These decisions can earn you money.
+    Regardless of these decisions, you will receive 5 euros for showing up on time.
+    This experiment is composed of different parts.
+    All instructions will be displayed on your screen. Please click Next to continue.
+</p>
+
+
+    {% next_button %}
+
+{% endblock %}
