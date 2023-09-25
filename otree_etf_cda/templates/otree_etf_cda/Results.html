@@ -25,19 +25,23 @@
 
 
     <div>
-        <span class="font-weight-bold">Realized payoff to asset X:</span>
+        <span class="font-weight-bold">Realized payoff to each unit of asset X:</span>
         <span> {{A_payoff}}</span>
     </div>
     <div>
-        <span class="font-weight-bold">Realized payoff to asset Y:</span>
+        <span class="font-weight-bold">Realized payoff to each unit of asset Y:</span>
         <span> {{B_payoff}}</span>
     </div>
     <div>
-        <span class="font-weight-bold">Realized payoff to asset Z:</span>
+        <span class="font-weight-bold">Realized payoff to each unit of asset Z:</span>
         <span> {{C_payoff}}</span>
     </div>
     <div class="mb-4">
-        <span class="font-weight-bold">Your final payoff:</span>
+        <span class="font-weight-bold">Payoffs from your holdings:</span>
+        <span>{{net_payoff}}</span>
+    </div>
+    <div class="mb-4">
+        <span class="font-weight-bold">Payoffs plus starting points:</span>
         <span>{{player.payoff}}</span>
     </div>
 
