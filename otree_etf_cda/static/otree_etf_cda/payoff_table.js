@@ -59,51 +59,51 @@ class PayoffTable extends PolymerElement {
 
             <div class="mytable">
                 <div class="container">
-                    <span>Asset A</span>
+                    <span>Asset X</span>
                     <div class="table">
                         <div>
                             <span>Payoff</span>
                             <span>Chance</span>
                         </div>
                         <div>
-                            <span>[[_getPayoff("A", 0, assetStructure)]]</span>
-                            <span>[[_getProbability("A", 0, assetStructure)]]%</span>
+                            <span>[[_getPayoff("X", 0, assetStructure)]]</span>
+                            <span>[[_getProbability("X", 0, assetStructure)]]%</span>
                         </div>
                         <div>
-                            <span>[[_getPayoff("A", 1, assetStructure)]]</span>
-                            <span>[[_getProbability("A", 1, assetStructure)]]%</span>
+                            <span>[[_getPayoff("X", 1, assetStructure)]]</span>
+                            <span>[[_getProbability("X", 1, assetStructure)]]%</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="container">
-                    <span>Asset B</span>
+                    <span>Asset Y</span>
                     <div class="table">
                         <div>
                             <span>Payoff</span>
                             <span>Chance</span>
                         </div>
                         <div>
-                            <span>[[_getPayoff("B", 0, assetStructure)]]</span>
-                            <span>[[_getProbability("B", 0, assetStructure)]]%</span>
+                            <span>[[_getPayoff("Y", 0, assetStructure)]]</span>
+                            <span>[[_getProbability("Y", 0, assetStructure)]]%</span>
                         </div>
                         <div>
-                            <span>[[_getPayoff("B", 1, assetStructure)]]</span>
-                            <span>[[_getProbability("B", 1, assetStructure)]]%</span>
+                            <span>[[_getPayoff("Y", 1, assetStructure)]]</span>
+                            <span>[[_getProbability("Y", 1, assetStructure)]]%</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="container">
-                    <span>Asset C</span>
+                    <span>Asset Z</span>
                     <div class="table">
                         <div>
                             <span>Payoff</span>
                             <span>Chance</span>
                         </div>
                         <div>
-                            <span>[[_getPayoff("C", 0, assetStructure)]]</span>
-                            <span>[[_getProbability("C", 0, assetStructure)]]%</span>
+                            <span>[[_getPayoff("Z", 0, assetStructure)]]</span>
+                            <span>[[_getProbability("Z", 0, assetStructure)]]%</span>
                         </div>
                     </div>
                 </div>

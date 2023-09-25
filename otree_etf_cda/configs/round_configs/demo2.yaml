@@ -40,7 +40,7 @@ states:
 # this field describes the asset structure for the round
 asset_structure:
   # name of the asset
-  A:
+  X:
     # whether the player be allowed to hold negative quantities of this asset
     allow_short: false
     # the maximum amount of this asset a player is allowed to borrow for short selling
@@ -59,7 +59,7 @@ asset_structure:
       W: 89
     mypayoffs: [300, 20]
     probabilities: [45, 55]
-  B:
+  Y:
     allow_short: false
     short_limit: 10
     is_etf: false
@@ -71,7 +71,7 @@ asset_structure:
       W: 80
     mypayoffs: [200, 80 ]
     probabilities: [ 65, 35]
-  C:
+  Z:
     allow_short: true
     short_limit: 10
     is_etf: false

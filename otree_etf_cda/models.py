@@ -70,8 +70,8 @@ class Group(markets_models.Group):
     
     def do_realized_state_draw(self):
         structure = self.subsession.config.asset_structure
-        self.state_a = random.choices([0, 1], weights=structure["A"]["probabilities"], k=1)[0]
-        self.state_b = random.choices([0, 1], weights=structure["B"]["probabilities"], k=1)[0]
+        self.state_a = random.choices([0, 1], weights=structure["X"]["probabilities"], k=1)[0]
+        self.state_b = random.choices([0, 1], weights=structure["Y"]["probabilities"], k=1)[0]
 
 
     def set_payoffs(self):
@@ -133,10 +133,10 @@ class Player(markets_models.Player):
     def set_payoff(self):
         config = self.subsession.config
         structure = config.asset_structure
-        value_a = structure["A"]["mypayoffs"][self.group.state_a]
-        value_b = structure["B"]["mypayoffs"][self.group.state_b]
-        value_c = structure["C"]["mypayoffs"][0]
-        self.payoff += value_a * self.settled_assets["A"] + value_b * self.settled_assets["B"] + value_c * self.settled_assets["C"]
+        value_a = structure["X"]["mypayoffs"][self.group.state_a]
+        value_b = structure["Y"]["mypayoffs"][self.group.state_b]
+        value_c = structure["Z"]["mypayoffs"][0]
+        self.payoff += value_a * self.settled_assets["X"] + value_b * self.settled_assets["Y"] + value_c * self.settled_assets["Z"]
 
         # add cash gains/losses
         self.payoff += (self.settled_cash / config.currency_scale) - config.loan_value

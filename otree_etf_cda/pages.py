@@ -9,9 +9,9 @@ class Intro(Page):
         config = self.subsession.config
         structure = config.asset_structure
         endowment_cash = self.player.cash_endowment()
-        endowment_a = self.player.asset_endowment()["A"]
-        endowment_b = self.player.asset_endowment()["B"]
-        endowment_c = self.player.asset_endowment()["C"]
+        endowment_a = self.player.asset_endowment()["X"]
+        endowment_b = self.player.asset_endowment()["Y"]
+        endowment_c = self.player.asset_endowment()["Z"]
         return {
             'endowment_cash': endowment_cash,
             'endowment_A': endowment_a,
@@ -51,9 +51,9 @@ class Results(Page):
     def vars_for_template(self):
         config = self.subsession.config
         structure = config.asset_structure
-        value_a = structure["A"]["mypayoffs"][self.group.state_a]
-        value_b = structure["B"]["mypayoffs"][self.group.state_b]
-        value_c = structure["C"]["mypayoffs"][0]
+        value_a = structure["X"]["mypayoffs"][self.group.state_a]
+        value_b = structure["Y"]["mypayoffs"][self.group.state_b]
+        value_c = structure["Z"]["mypayoffs"][0]
         final_cash = self.player.settled_cash / self.subsession.config.currency_scale
         return {
             'final_cash': final_cash,
