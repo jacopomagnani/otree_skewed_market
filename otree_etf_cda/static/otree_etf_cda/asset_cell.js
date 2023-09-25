@@ -118,7 +118,7 @@ class AssetCell extends PolymerElement {
                         <button type="button" on-click="_enter_order" value="bid">Bid</button>
                     </div>
                     <div>
-                        
+
                         <input id="ask_price" type="number" min="0" step="[[price_step]]">
                         <button type="button" on-click="_enter_order" value="ask">Ask</button>
                     </div>
