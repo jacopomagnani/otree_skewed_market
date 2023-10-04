@@ -133,10 +133,10 @@ class Player(markets_models.Player):
     def set_payoff(self):
         config = self.subsession.config
         structure = config.asset_structure
-        value_a = structure["X"]["payoffs"][self.group.state_a]
-        value_b = structure["Y"]["payoffs"][self.group.state_b]
-        value_c = structure["Z"]["payoffs"][0]
-        self.payoff += config.initial_points + value_a * self.settled_assets["X"] + value_b * self.settled_assets["Y"] + value_c * self.settled_assets["Z"]
+        value_x = structure["X"]["payoffs"][self.group.state_a]
+        value_y = structure["Y"]["payoffs"][self.group.state_b]
+        value_z = structure["Z"]["payoffs"][0]
+        self.payoff += config.initial_points + value_x * self.settled_assets["X"] + value_y * self.settled_assets["Y"] + value_z * self.settled_assets["Z"]
 
         # add cash gains/losses
         self.payoff += (self.settled_cash / config.currency_scale) - config.loan_value
