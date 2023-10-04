@@ -29,15 +29,7 @@ pay_round: 2
 # this field lists all the possible states and their relative probability of occuring.
 # the probability for each state is calculated as that state's prob_weight divided by
 # the sum of prob_weight across all states
-states:
-  X:
-    prob_weight: 25
-  Y:
-    prob_weight: 25
-  Z:
-    prob_weight: 475
-  W:
-    prob_weight: 475
+
 
 # this field describes the asset structure for the round
 asset_structure:
