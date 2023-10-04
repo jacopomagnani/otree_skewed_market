@@ -132,7 +132,7 @@ class PayoffTable extends PolymerElement {
             return payoff;
         }
         else {
-            return assetStructure[assetName].mypayoffs[state];
+            return assetStructure[assetName].payoffs[state];
         }
     }
 
