@@ -136,7 +136,7 @@ class Player(markets_models.Player):
         value_a = structure["X"]["mypayoffs"][self.group.state_a]
         value_b = structure["Y"]["mypayoffs"][self.group.state_b]
         value_c = structure["Z"]["mypayoffs"][0]
-        self.payoff += 10000 + value_a * self.settled_assets["X"] + value_b * self.settled_assets["Y"] + value_c * self.settled_assets["Z"]
+        self.payoff += config.initial_points + value_a * self.settled_assets["X"] + value_b * self.settled_assets["Y"] + value_c * self.settled_assets["Z"]
 
         # add cash gains/losses
         self.payoff += (self.settled_cash / config.currency_scale) - config.loan_value

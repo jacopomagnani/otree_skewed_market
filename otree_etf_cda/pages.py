@@ -60,7 +60,7 @@ class Results(Page):
             'A_payoff': value_a,
             'B_payoff': value_b,
             'C_payoff': value_c,
-            'net_payoff': self.player.payoff - 10000
+            'net_payoff': self.player.payoff - config.initial_points
 
         }
 
