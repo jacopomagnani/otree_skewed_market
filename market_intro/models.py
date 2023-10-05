@@ -92,3 +92,4 @@ class Player(BasePlayer):
             if self.in_round(i).answer == Constants.questions_list[i-1]["correct_answer"]:
                 k = k + 1
         self.num_correct = k
+        self.payoff = self.num_correct
