@@ -28,9 +28,9 @@ class Constants(BaseConstants):
                        },
                       {
                           'q1': 'The payoffs of the risky assets are not related.',
-                          'q2': 'When the payoffs of Asset A is high then the payoff of Asset B is low.',
-                          'q3': 'When the payoffs of Asset A is high then the payoff of Asset B is high.',
-                          'q4': 'When the payoffs of Asset A is low then the payoff of Asset B is low.',
+                          'q2': 'When the payoffs of Asset X is high then the payoff of Asset Y is low.',
+                          'q3': 'When the payoffs of Asset X is high then the payoff of Asset Y is high.',
+                          'q4': 'When the payoffs of Asset X is low then the payoff of Asset Y is low.',
                           'correct_answer': 1
                       },
                       {
