@@ -23,12 +23,6 @@ period_length: 10
 currency_scale: 1
 # whether or not arbitrage bots are enabled
 bots_enabled: false
-# the round which is counted for final payoff
-pay_round: 2
-
-# this field lists all the possible states and their relative probability of occuring.
-# the probability for each state is calculated as that state's prob_weight divided by
-# the sum of prob_weight across all states
 
 
 # this field describes the asset structure for the round
@@ -48,7 +42,6 @@ asset_structure:
     # only specified when asset ISN'T an etf
     payoffs: [156, 84]
     probabilities: [50, 50]
-    realized_payoff: 156
   Y:
     allow_short: false
     short_limit: 10
@@ -56,7 +49,6 @@ asset_structure:
     endowment: [2, 9]
     payoffs: [277, 112 ]
     probabilities: [ 5, 95]
-    realized_payoff: 112
   Z:
     allow_short: true
     short_limit: 5
@@ -64,4 +56,3 @@ asset_structure:
     endowment: [0, 0]
     payoffs: [ 100 ]
     probabilities: [ 100 ]
-    realized_payoff: 100
