@@ -2,7 +2,7 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Market round {{subsession.round_number}}: results
+    Période {{subsession.round_number}}: résultats
 {% endblock %}
 
 {% block content %}
@@ -10,12 +10,12 @@
         <tr>
             <th></th>
             {% for asset_name in player.settled_assets.keys %}
-            <th scope="col">Asset {{ asset_name }}</th>
+            <th scope="col">Actif {{ asset_name }}</th>
             {% endfor %}
-            <th scope="col">Cash</th>
+            <th scope="col">Argent</th>
         </tr>
         <tr>
-            <th scope="row">Final Holdings</th>
+            <th scope="row">Votre position</th>
             {% for amount in player.settled_assets.values %}
             <td>{{ amount}}</td>
             {% endfor %}
@@ -25,24 +25,24 @@
 
 
     <div>
-        <span class="font-weight-bold">Realized payoff to each unit of asset X:</span>
+        <span class="font-weight-bold">Gain pour chaque unité de l'actif X:</span>
         <span> {{X_payoff}}</span>
     </div>
     <div>
-        <span class="font-weight-bold">Realized payoff to each unit of asset Y:</span>
+        <span class="font-weight-bold">Gain pour chaque unité de l'actif Y:</span>
         <span> {{Y_payoff}}</span>
     </div>
     <div>
-        <span class="font-weight-bold">Realized payoff to each unit of asset Z:</span>
+        <span class="font-weight-bold">Gain pour chaque unité de l'actif Z:</span>
         <span> {{Z_payoff}}</span>
     </div>
     <div class="mb-4">
-        <span class="font-weight-bold">Payoffs from your holdings:</span>
+        <span class="font-weight-bold">Gains provenant de votre position :</span>
         <span>{{net_payoff}}</span>
     </div>
     <div class="mb-4">
-        <span class="font-weight-bold">Payoffs plus starting points:</span>
-        <span>{{player.payoff}}</span>
+        <span class="font-weight-bold">Gains plus réserve de cash:</span>
+        <span>{{player.score}}</span>
     </div>
 
     {% next_button %}

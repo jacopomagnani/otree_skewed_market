@@ -2,25 +2,28 @@
 {% load otree static %}
 
 {% block title %}
-    Quiz results
+    Résultat des questions
 {% endblock %}
 
 {% block content %}
 
 {% if player.num_correct == 1%}
-<p>You answered 1 question out of 7 correctly.</p>
+<p>Vous avez répondu correctement à 1 question sur 7.</p>
 {% else %}
-<p>You answered {{player.num_correct}} questions out of 7 correctly.</p>
+<p>Vous avez répondu correctement à {{player.num_correct}} questions sur 7.</p>
 {% endif %}
 
-<p>You can see the correct answers below.</p>
-<p>Correct answers are typed in <b>bold</b> fonts. If some of your answers were wrong, they are <mark>highlighted</mark>.</p>
+<p>Vous pouvez voir les bonnes réponses ci-dessous.</p>
+
+<p>Les réponses correctes sont écrites en caractères <b>gras</b>.
+    Si certaines de vos réponses sont fausses, elles sont <mark>surlignées</mark>.
+</p>
 
 <table>
     {% for q1, q2, q3, q4, correct_answer, actual_answer in questions %}
   <tr>
     <td>
-        <p>Which of the following statements is correct?</p>
+        <p>Laquelle des affirmations suivantes est correcte ?</p>
         <input  name="q1" type="radio" id="q1" disabled>
         {% if correct_answer == 1 %}
             <label for= "q1"> <b>{{q1}}</b> </label>

@@ -2,25 +2,25 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Market round {{subsession.round_number}}
+    Période {{subsession.round_number}}
 {% endblock %}
 
 {% block content %}
 
-{% if subsession.round_number ==1 %}
-<p> This is a practice round.</p>
+{% if subsession.round_number == 1 %}
+<p>C'est un période d'entraînement.</p>
 {% endif %}
 
-    <p>In this market round, the assets have the following payoffs:</p>
+    <p>Lors de cette période, les actifs ont les gains suivants :</p>
 
     <div class="row" align="center">
         <div class="column">
             <table>
                 <tr>
-                    <td colspan="3">Asset X</td>
+                    <td colspan="3">Actif X</td>
                 </tr>
               <tr>
-                <td>Payoff</td>
+                <td>Gain</td>
                 <td>{{structure.X.payoffs.0}}</td>
                   <td>{{structure.X.payoffs.1}}</td>
               </tr>
@@ -34,10 +34,10 @@
         <div class="column">
             <table>
                 <tr>
-                    <td colspan="3">Asset Y</td>
+                    <td colspan="3">Actif Y</td>
                 </tr>
               <tr>
-                <td>Payoff</td>
+                <td>Gain</td>
                 <td>{{structure.Y.payoffs.0}}</td>
                   <td>{{structure.Y.payoffs.1}}</td>
               </tr>
@@ -51,10 +51,10 @@
         <div class="column">
             <table>
                 <tr>
-                    <td colspan="3">Asset Z</td>
+                    <td colspan="3">Actif Z</td>
                 </tr>
               <tr>
-                <td>Payoff</td>
+                <td>Gain</td>
                 <td>{{structure.Z.payoffs.0}}</td>
               </tr>
               <tr>
@@ -66,14 +66,14 @@
     </div>
 
     <br>
-    <p>You will start this market round with the following endowments:</p>
+    <p>Vous commencerez cette période avec les dotations suivantes:</p>
 
     <table align="center">
         <tr>
-            <td>Cash</td>
-            <td>Asset X</td>
-            <td>Asset Y</td>
-            <td>Asset Z</td>
+            <td>Argent</td>
+            <td>Actif X</td>
+            <td>Actif Y</td>
+            <td>Actif Z</td>
         </tr>
         <tr>
             <td>{{endowment_cash}}</td>
@@ -84,7 +84,7 @@
     </table>
 
     <br>
-    <p>After you and the other participants have clicked on the 'Next' button, the market round will start.</p>
+    <p>Une fois que vous et les autres participants aurez cliqué sur le bouton "Suivant", la période commencera.</p>
 
 
     {% next_button %}

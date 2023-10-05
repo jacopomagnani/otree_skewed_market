@@ -101,11 +101,11 @@ class HoldingsTable extends PolymerElement {
             <div class="container">
                 <div class="table">
                     <div>
-                        <span>Asset</span>
-                        <span>Available</span>
-                        <span>Settled</span>
-                        <span>Requested</span>
-                        <span>Offered</span>
+                        <span>Actif</span>
+                        <span>Disponible</span>
+                        <span>Effectif</span>
+                        <span>Demandé</span>
+                        <span>Offert</span>
                     </div>
                     <template is="dom-repeat" items="{{assetNames}}" as="assetName">
                         <div>
@@ -119,8 +119,8 @@ class HoldingsTable extends PolymerElement {
                 </div>
                 <div class="cash">
                     <div>
-                        <span>Settled Cash:</span>
-                        <span>Available Cash:</span>
+                        <span>Argent effectif:</span>
+                        <span>Argent disponible:</span>
                     </div>
                     <div>
                         <span>[[_currencyToHumanReadable(settledCash)]]</span>

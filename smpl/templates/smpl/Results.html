@@ -2,12 +2,12 @@
 {% load otree static %}
 
 {% block title %}
-    Part 2: results
+    Résultats de la partie 2
 {% endblock %}
 
 {% block content %}
 
-    <p>The following decision was selected for payment:</p>
+    <p>La décision suivante a été sélectionnée pour le paiement :</p>
 
 
 <table class="table table-striped">
@@ -46,12 +46,12 @@
         {% endif %}
         </td>
         <td align="left">
-            {{ lottery_payoff_big }} with probability {{ lottery_prob_big }}% or {{ lottery_payoff_small }} with probability {{ lottery_prob_small }}%
+            {{ lottery_payoff_big }} avec une probabilité de {{ lottery_prob_big }}% ou {{ lottery_payoff_small }} avec une probabilité de {{ lottery_prob_small }}%
         </td>
     </tr>
 </table>
 
-    <p>Your payoff is {{ final_payoff }}</p>
+    <p>Votre paiement est de {{ final_payoff }}</p>
 
 
     {% next_button %}

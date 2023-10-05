@@ -2,26 +2,26 @@
 {% load otree static %}
 
 {% block title %}
-    The end
+    L'expérience est terminée.
 {% endblock %}
 
 {% block content %}
 
 <p>
-    The experiment is over.
+    L'expérience est terminée.
 </p>
 
 <p>
-    Your total score is: {{player.participant.payoff}}.
+    Votre paiement en centimes est de: {{score}}.
 </p>
 
 <p>
-    Your total score converted in euros is: &euro;{{rate}} <span>&times;</span> (your total score) = {{total_payoff_in_currency}}.
+    Votre paiement converti en euros est de: {{score_in_currency}}.
 </p>
 
 
 <p>
-    Your score in euros plus the show-up fee of {{fee}} is: {{raw_payment}}
+    Votre paiement final en euros incluant le gain de participation de 5 euros est de: {{payment}}
 </p>
 
 

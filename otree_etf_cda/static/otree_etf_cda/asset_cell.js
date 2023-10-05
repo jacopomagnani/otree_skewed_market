@@ -84,10 +84,10 @@ class AssetCell extends PolymerElement {
             ></currency-scaler>
 
             <div class="main-container">
-                <h3>Asset [[assetName]]</h3>
+                <h3>Actif [[assetName]]</h3>
                 <div class="list">
                     <div>
-                        <h5>Bids</h5>
+                        <h5>Offres d’achat</h5>
                         <order-list
                             asset-name="[[assetName]]"
                             orders="[[bids]]"
@@ -95,7 +95,7 @@ class AssetCell extends PolymerElement {
                         ></order-list>
                     </div>
                     <div>
-                        <h5>Trades</h5>
+                        <h5>Transactions</h5>
                         <trade-list
                             asset-name="[[assetName]]"
                             trades="[[trades]]"
@@ -103,7 +103,7 @@ class AssetCell extends PolymerElement {
                         ></trade-list>
                     </div>
                     <div>
-                        <h5>Asks</h5>
+                        <h5>Offres de vente</h5>
                         <order-list
                             asset-name="[[assetName]]"
                             orders="[[asks]]"
@@ -115,12 +115,12 @@ class AssetCell extends PolymerElement {
                     <div>
 
                         <input id="bid_price" type="number" min="0" step="[[price_step]]">
-                        <button type="button" on-click="_enter_order" value="bid">Bid</button>
+                        <button type="button" on-click="_enter_order" value="bid">Faire une offre d’achat</button>
                     </div>
                     <div>
 
                         <input id="ask_price" type="number" min="0" step="[[price_step]]">
-                        <button type="button" on-click="_enter_order" value="ask">Ask</button>
+                        <button type="button" on-click="_enter_order" value="ask">Faire une offre de vente</button>
                     </div>
                 </div>
             </div>
@@ -145,8 +145,8 @@ class AssetCell extends PolymerElement {
             // and empty string otherwise
             let buy_sell_indicator = '';
             if (bought && sold) buy_sell_indicator = ' BS';
-            else if (bought)    buy_sell_indicator = ' B';
-            else if (sold)      buy_sell_indicator = ' S';
+            else if (bought)    buy_sell_indicator = ' A';
+            else if (sold)      buy_sell_indicator = ' V';
 
             const price = this.$.currency_scaler.toHumanReadable(making_order.price);
 

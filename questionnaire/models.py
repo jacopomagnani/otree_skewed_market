@@ -22,71 +22,81 @@ class Constants(BaseConstants):
     num_rounds = 1
     demographics_questions = [
         {
-            'question': 'What is your gender?',
-            'answers': ['Female', 'Male', 'Prefer not to say']
+            'question': 'Quel est votre genre?',
+            'answers': ['Féminin', 'Masculin', 'Autre']
         },
         {
-            'question': 'What is your age?',
-            'answers': range(18, 45)
+            'question': 'Quel est votre niveau d’étude?',
+            'answers': ['Sans diplôme',
+                        'Certificat des écoles',
+                        'Brevet',
+                        'BEP-CAP',
+                        'Baccalauréat général ou professionel',
+                        'Bac +2 - DEUG - IUT - DUT - BTS',
+                        'Bac +3 - License',
+                        'Bac + 4 = Maitrise',
+                        'BAc +5 - Master - DESS - DEA',
+                        'Plus de Bac +5 - Doctorat -Thèse']
         },
         {
-            'question': 'What is your field of study?',
-            'answers': ['Science, Technology, Engineering and Maths',
-                        'Humanities',
-                        'Social sciences',
-                        'Business, Finance and Economics']
+            'question': 'Quelle est votre école si vous êtes étudiant? ("Autre" si vous n’êtes pas étudiant)',
+            'answers': ['ECLyon',
+                        'EMLyon',
+                        'Fac de sciences économiques et gestion',
+                        'ITECH',
+                        'ISOSTEO',
+                        'Autre']
         },
         {
-            'question': 'Have you ever traded any stocks or other financial securities?',
-            'answers': ['Yes',
-                        'No']
+            'question': 'Avez-vous déjà acheté des actions ou d’autres actifs financiers?',
+            'answers': ['Oui',
+                        'Non']
         },
     ]
     crt_questions = [
         {
-            'question': 'If it takes 10 mechanics 10 hours to fix 10 cars, how long would it take 80 mechanics to fix 80 cars? (Answer in hours)',
+            'question': 'S’il faut 10 mécaniciens pendant 10 heures pour réparer 10 voitures, combien de heures faudrait-il à 80 mécaniciens pour réparer 80 voitures?',
             'correct_answer': 10
         },
         {
-            'question': 'A table and a chair cost $150 in total. The table costs 100 dollars more than the chair. How much does the chair cost? (Answer in dollars)',
+            'question': 'Une table et une chaise coûtent 150 euros au total. La table coûte 100 euros de plus que la chaise. Combien d’euros coûte la chaise ?',
             'correct_answer': 25
         },
         {
-            'question': 'In the zoo, the lions eat one ton of meat every 6 weeks, and the tigers eat another ton of meat every 12 weeks, how long would it take them (lions and tigers) to eat one ton of meat together? (Answer in weeks)',
+            'question': 'Au zoo, les lions mangent une tonne de viande toutes les 6 semaines et les tigres une autre tonne de viande toutes les 12 semaines. Combien de semaines leur faudra-t-il (aux lions et aux tigres) pour manger une tonne de viande ensemble ? ',
             'correct_answer': 4
         },
         {
-            'question': 'John obtained the 25th fastest mark and the 25th slowest mark in a race. How many people participated in the race?',
+            'question': 'Jean a obtenu le 25ème temps le plus rapide et le 25ème temps le plus lent lors d’une course. Combien de personnes ont participé à cette course ?',
             'correct_answer': 49
         }
     ]
     finance_questions = [
         {
-            'question': 'Suppose you had $100 in a savings account and the interest rate was 2% per year. After 5 years, how much do you think you would have in the account if you left the money to grow?',
-            'answers': ['More than $102', 'Exactly $102', 'Less than $102', 'Don’t know', 'Refuse to answer'],
-            'correct_answer': 'More than $102'
+            'question': 'Supposons que vous ayez 100 euros sur un compte épargne et que le taux d’intérêt soit de 2 % par an. Au bout de 5 ans, combien pensez-vous avoir sur le compte si vous laissez l’argent fructifier ?',
+            'answers': ['Plus de 102 euros', 'Exactement 102 euros', 'Moins de 102 euros', 'Ne sait pas', 'Refuse de répondre'],
+            'correct_answer': 'Plus de 102 euros'
         },
         {
-            'question': 'Imagine that the interest rate on your savings account was 1% per year and inflation was 2% per year. After 1 year, with the money in this account, would you be able to buy…',
-            'answers': ['More than today', 'Exactly the same as today', 'Less than today', 'Don’t know',
-                        'Refuse to answer'],
-            'correct_answer': 'Less than today'
+            'question': 'Imaginez que le taux d’intérêt sur votre compte épargne soit de 1 % par an et que l’inflation soit de 2 % par an. Au bout d’1 an, l’argent disponible sur ce compte vous permettra acheter...',
+            'answers': ['Plus qu’aujourd’hui', 'Exactement la même chose qu’aujourd’hui', 'Moins qu’aujourd’hui', 'Ne sait pas', 'Refuse de répondre'],
+            'correct_answer': 'Moins qu’aujourd’hui'
         },
         {
-            'question': 'If interest rates rise, what will typically happen to bond prices?',
-            'answers': ['They will rise', 'They will fall', 'They will stay the same',
-                        'There is no relationship between bond prices and the interest rate', 'Don’t know',
-                        'Prefer not to say'],
-            'correct_answer': 'They will fall'
+            'question': 'Quand les taux d’intérêt augmentent, que se passe-t-il généralement pour les prix des obligations?',
+            'answers': ['Ils augmentent', 'Ils baissent', 'Ils restent inchangés',
+                        'Il n’y a pas de relation entre le prix des obligations et le taux d’intérêt',
+                        'Ne sait pas', 'Refuse de répondre'],
+            'correct_answer': 'Ils baissent'
         },
         {
-            'question': 'A 15-year mortgage typically requires higher monthly payments than a 30-year mortgage, but the total interest paid over the life of the loan will be less.',
-            'answers': ['True', 'False', 'Don’t know', 'Prefer not to say'],
-            'correct_answer': 'True'
+            'question': 'Un prêt hypothécaire sur 15 ans nécessite généralement des paiements mensuels plus élevés qu’un prêt hypothécaire sur 30 ans, mais le montant total des intérêts payés sur la durée du prêt sera moins élevé.',
+            'answers': ['Vrai', 'Faux', 'Ne sait pas', 'Refuse de répondre'],
+            'correct_answer': 'Vrai'
         },
         {
-            'question': 'Buying a single company’s stock usually provides a safer return than a stock mutual fund.',
-            'answers': ['True', 'False', 'Don’t know', 'Prefer not to say'],
+            'question': 'L’achat d’actions d’une seule société offre généralement un rendement plus sûr qu’un fonds commun de placement en actions.',
+            'answers': ['Vrai', 'Faux', 'Ne sait pas', 'Refuse de répondre'],
             'correct_answer': 'False'
         }
     ]
@@ -105,11 +115,11 @@ class Player(BasePlayer):
         label=Constants.demographics_questions[0]["question"],
         choices=Constants.demographics_questions[0]["answers"]
     )
-    demographics_age = models.IntegerField(
+    demographics_level = models.StringField(
         label=Constants.demographics_questions[1]["question"],
         choices=Constants.demographics_questions[1]["answers"]
     )
-    demographics_field = models.StringField(
+    demographics_school = models.StringField(
         label=Constants.demographics_questions[2]["question"],
         choices=Constants.demographics_questions[2]["answers"]
     )

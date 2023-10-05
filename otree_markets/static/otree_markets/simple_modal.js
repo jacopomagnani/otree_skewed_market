@@ -17,7 +17,7 @@ export class SimpleModal extends PolymerElement {
             on_close_callback: Object,
             buttons: {
                 type: Array,
-                value: () => ['Decline', 'Accept']
+                value: () => ['Non', 'Oui']
             }
         };
     }

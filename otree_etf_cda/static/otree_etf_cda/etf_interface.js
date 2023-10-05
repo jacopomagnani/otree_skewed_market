@@ -165,7 +165,7 @@ class ETFInterface extends PolymerElement {
                             </div>
                             <div class="border flex-fill time-display">
                                 <div>
-                                    <span>Time Remaining: </span>
+                                    <span>Temps restant: </span>
                                     <span>[[ _format_time_remaining(timeRemaining) ]]</span>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@ class ETFInterface extends PolymerElement {
     _order_entered(event) {
         const order = event.detail;
         if (isNaN(order.price)) {
-            this.$.log.info('Invalid order entered');
+            this.$.log.info('Commande saisie invalide');
             return;
         }
         this.$.trader_state.enter_order(order.price, 1, order.is_bid, order.asset_name);
@@ -210,7 +210,7 @@ class ETFInterface extends PolymerElement {
     _order_canceled(event) {
         const order = event.detail;
 
-        this.$.modal.modal_text = 'Are you sure you want to remove this order?';
+        this.$.modal.modal_text = 'Êtes-vous sûr de vouloir supprimer cette commande?';
         this.$.modal.on_close_callback = (accepted) => {
             if (!accepted)
                 return;
@@ -226,7 +226,7 @@ class ETFInterface extends PolymerElement {
             return;
 
         const price_scaled = this.$.currency_scaler.toHumanReadable(order.price);
-        this.$.modal.modal_text = `Do you want to ${order.is_bid ? 'sell' : 'buy'} asset ${order.asset_name} for ${price_scaled}?`
+        this.$.modal.modal_text = `Vous souhaitez ${order.is_bid ? 'vendre' : 'acheter'} actif ${order.asset_name} aux prix de ${price_scaled}?`
         this.$.modal.on_close_callback = (accepted) => {
             if (!accepted)
                 return;
@@ -244,7 +244,7 @@ class ETFInterface extends PolymerElement {
         for (let order of all_orders) {
             if (order.pcode == this.pcode) {
                 const price_scaled = this.$.currency_scaler.toHumanReadable(trade.making_orders[0].price);
-                this.$.log.info(`You ${order.is_bid ? 'bought' : 'sold'} asset ${order.asset_name} for $${price_scaled}`);
+                this.$.log.info(`Vous avez ${order.is_bid ? 'acheté' : 'vendu'} actif ${order.asset_name} au prix de ${price_scaled}`);
             }
         }
     }
@@ -253,7 +253,7 @@ class ETFInterface extends PolymerElement {
     _confirm_cancel(event) {
         const order = event.detail;
         if (order.pcode == this.pcode) {
-            this.$.log.info(`You canceled your ${msg.is_bid ? 'bid' : 'ask'}`);
+            this.$.log.info(`Vous avez annulé votre offre.`);
         }
     }
 

@@ -2,11 +2,11 @@
 {% load otree static %}
 
 {% block title %}
-    Questionnaire - Part 1
+    Questionnaire - Partie 1
 {% endblock %}
 
 {% block content %}
-<p>Please answer the following questions.</p>
+<p>Veuillez répondre aux questions suivantes.</p>
 
 <table>
     <tr>
@@ -16,12 +16,12 @@
     </tr>
     <tr>
     <td>
-        {% formfield player.demographics_age%}
+        {% formfield player.demographics_level%}
     </td>
     </tr>
     <tr>
     <td>
-        {% formfield player.demographics_field%}
+        {% formfield player.demographics_school%}
     </td>
     </tr>
     <tr>

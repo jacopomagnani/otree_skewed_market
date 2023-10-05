@@ -59,10 +59,10 @@ class PayoffTable extends PolymerElement {
 
             <div class="mytable">
                 <div class="container">
-                    <span>Asset X</span>
+                    <span>Actif X</span>
                     <div class="table">
                         <div>
-                            <span>Payoff</span>
+                            <span>Gain</span>
                             <span>Chance</span>
                         </div>
                         <div>
@@ -77,10 +77,10 @@ class PayoffTable extends PolymerElement {
                 </div>
 
                 <div class="container">
-                    <span>Asset Y</span>
+                    <span>Actif Y</span>
                     <div class="table">
                         <div>
-                            <span>Payoff</span>
+                            <span>Gain</span>
                             <span>Chance</span>
                         </div>
                         <div>
@@ -95,10 +95,10 @@ class PayoffTable extends PolymerElement {
                 </div>
 
                 <div class="container">
-                    <span>Asset Z</span>
+                    <span>Actif Z</span>
                     <div class="table">
                         <div>
-                            <span>Payoff</span>
+                            <span>Gain</span>
                             <span>Chance</span>
                         </div>
                         <div>

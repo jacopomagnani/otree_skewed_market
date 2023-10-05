@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Make a choice
+    Faire un choix
 {% endblock %}
 
 {% block content %}
@@ -27,22 +27,22 @@
         <td align="middle">
             <input type="radio"
                    value="left" data-amount="{{ amount }}"
-                   name="{{ amount }}"
+                   name="{{ amount }}" oninput="InvalidMsg(this);"
                    required>&nbsp;&nbsp;
             <input type="radio"
-                   name="{{ amount }}"
+                   name="{{ amount }}" oninput="InvalidMsg(this);"
                    value="right" data-amount="{{ amount }}"
                    required>
         </td>
         <td align="left">
-            {{ lottery_payoff_big }} with probability {{ lottery_prob_big }}% or {{ lottery_payoff_small }} with probability {{ lottery_prob_small }}%
+            {{ lottery_payoff_big }} avec une probabilité de {{ lottery_prob_big }}% ou {{ lottery_payoff_small }} avec une probabilité de {{ lottery_prob_small }}%
         </td>
     </tr>
     {% endfor %}
 </table>
 
 
-<button type="button" class="btn btn-primary" onclick="submitForm()">Next</button>
+<button type="button" class="btn btn-primary" onclick="submitForm()">Suivant</button>
 
 
 {% endblock %}
@@ -101,4 +101,18 @@
     });
 
 </script>
+
+<script>
+        function InvalidMsg(textbox) {
+
+            if (textbox.value === '') {
+                textbox.setCustomValidity
+                      ('Entering an email-id is necessary!');
+            } else {
+                textbox.setCustomValidity('');
+            }
+
+            return true;
+        }
+    </script>
 {% endblock %}
