@@ -6,6 +6,11 @@
 {% endblock %}
 
 {% block content %}
+
+{% if subsession.round_number ==1 %}
+<p> This is a practice round.</p>
+{% endif %}
+
     <p>In this market round, the assets have the following payoffs:</p>
 
     <div class="row" align="center">
