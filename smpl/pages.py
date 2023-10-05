@@ -39,7 +39,7 @@ class Results(Page):
             'lottery_prob_big': Constants.lottery_prob_big[paying_round - 1],
             'lottery_prob_small': 100 - Constants.lottery_prob_big[paying_round - 1],
             'chosen_sure': (self.player.in_round(paying_round).switching_point < Constants.sure_payoffs[paying_row - 1]),
-            'final_payoff': self.player.in_round(paying_round).payoff
+            'final_payoff': self.player.in_round(paying_round).score
         }
 
 

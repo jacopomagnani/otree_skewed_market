@@ -42,13 +42,14 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     switching_point = models.IntegerField()
+    score = models.IntegerField()
 
     def get_outcome(self):
         paying_round = self.participant.vars['mpl_paying_round']
         paying_row = self.participant.vars['mpl_paying_row']
         if self.round_number == paying_round:
             if self.switching_point < Constants.sure_payoffs[paying_row - 1]:
-                self.payoff = c(Constants.sure_payoffs[paying_row - 1])
+                self.score = Constants.sure_payoffs[paying_row - 1]
             else:
                 this_lottery_payoff_big = Constants.lottery_payoff_big[paying_round - 1]
                 this_lottery_payoff_small = Constants.lottery_payoff_small[paying_round - 1]
@@ -56,4 +57,6 @@ class Player(BasePlayer):
                 this_lottery_prob_small = 100 - Constants.lottery_prob_big[paying_round - 1]
                 pay = random.choices([this_lottery_payoff_big, this_lottery_payoff_small],
                                      weights=[this_lottery_prob_big, this_lottery_prob_small], k=1)
-                self.payoff = c(int(pay[0]))
+                self.score = int(pay[0])
+            self.payoff = c(self.score)
+            self.participant.vars['mpl_score'] = self.score
