@@ -27,7 +27,7 @@ class Decide(Page):
 
 class Results(Page):
     def is_displayed(self):
-        return self.subsession.round_number == 15
+        return self.subsession.round_number == Constants.num_rounds
 
     def vars_for_template(self):
         paying_round = self.player.participant.vars['mpl_paying_round']
