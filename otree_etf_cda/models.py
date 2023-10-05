@@ -37,6 +37,9 @@ class Subsession(markets_models.Subsession):
     def creating_session(self):
         if self.round_number > self.config.num_rounds:
             return
+        if self.round_number == 1:
+            paying_round = random.randint(1, self.config.num_rounds)
+            self.session.vars['market_paying_round'] = paying_round
         self.do_grouping()
         if self.config.bots_enabled:
             for group in self.get_groups():
@@ -73,7 +76,6 @@ class Group(markets_models.Group):
         self.state_a = random.choices([0, 1], weights=structure["X"]["probabilities"], k=1)[0]
         self.state_b = random.choices([0, 1], weights=structure["Y"]["probabilities"], k=1)[0]
 
-
     def set_payoffs(self):
         self.do_realized_state_draw()
         for player in self.get_players():
@@ -96,6 +98,8 @@ class Group(markets_models.Group):
 
 
 class Player(markets_models.Player):
+
+    score = models.FloatField()
 
     def check_available(self, is_bid, price, volume, asset_name):
         config = self.subsession.config
@@ -136,10 +140,11 @@ class Player(markets_models.Player):
         value_x = structure["X"]["payoffs"][self.group.state_a]
         value_y = structure["Y"]["payoffs"][self.group.state_b]
         value_z = structure["Z"]["payoffs"][0]
-        self.payoff += config.initial_points + value_x * self.settled_assets["X"] + value_y * self.settled_assets["Y"] + value_z * self.settled_assets["Z"]
-
+        self.score = value_x * self.settled_assets["X"] + value_y * self.settled_assets["Y"] + value_z * self.settled_assets["Z"]
         # add cash gains/losses
-        self.payoff += (self.settled_cash / config.currency_scale) - config.loan_value
-
-        if self.round_number != config.pay_round:
+        self.score += config.initial_points + (self.settled_cash / config.currency_scale) - config.loan_value
+        self.payoff += self.score
+        if self.round_number == self.session.vars['market_paying_round']:
+            self.participant.vars['market_score'] = self.score
+        else:
             self.participant.payoff -= self.payoff
