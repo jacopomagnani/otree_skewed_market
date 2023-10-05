@@ -89,7 +89,10 @@ class Player(BasePlayer):
     def get_outcome(self):
         k = 0
         for i in range(1, Constants.num_rounds + 1):
-            if self.in_round(i).answer == Constants.questions_list[i-1]["correct_answer"]:
+            if self.in_round(i).answer == Constants.questions_list[i - 1]["correct_answer"]:
                 k = k + 1
         self.num_correct = k
-        self.payoff = self.num_correct
+        if self.num_correct == Constants.num_rounds:
+            self.payoff = 100
+        else:
+            self.payoff = 0
