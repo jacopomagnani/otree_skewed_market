@@ -58,8 +58,7 @@ class Results(Page):
             'X_payoff': value_x,
             'Y_payoff': value_y,
             'Z_payoff': value_z,
-            'net_payoff': self.player.payoff - config.initial_points
-
+            'net_payoff': self.player.score - config.initial_points
         }
 
 
@@ -70,9 +69,9 @@ class FinalResult(Page):
 
     def vars_for_template(self):
         return {
-            'market_payoff': self.player.in_round(self.subsession.config.pay_round).payoff
+            'pay_round': self.session.vars['market_paying_round'],
+            'market_payoff': self.participant.vars['market_score']
         }
-
 
 
 page_sequence = [Intro, Market, ResultsWaitPage, Results, FinalResult]
