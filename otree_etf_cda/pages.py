@@ -49,8 +49,8 @@ class Results(Page):
     def vars_for_template(self):
         config = self.subsession.config
         structure = config.asset_structure
-        value_x = structure["X"]["payoffs"][self.group.state_a]
-        value_y = structure["Y"]["payoffs"][self.group.state_b]
+        value_x = structure["X"]["payoffs"][self.group.state_x]
+        value_y = structure["Y"]["payoffs"][self.group.state_y]
         value_z = structure["Z"]["payoffs"][0]
         final_cash = self.player.settled_cash / self.subsession.config.currency_scale
         return {
