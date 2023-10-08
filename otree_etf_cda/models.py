@@ -10,10 +10,12 @@ from .bots import ETFMakerBot, pcode_is_bot
 class Constants(BaseConstants):
     name_in_url = 'otree_etf_cda'
     players_per_group = None
-    num_rounds = 4
+    num_rounds = 5
 
 
 class Subsession(markets_models.Subsession):
+
+    treatment = models.StringField()
 
     @property
     def config(self):
@@ -41,6 +43,7 @@ class Subsession(markets_models.Subsession):
             paying_round = random.randint(2, self.config.num_rounds)
             self.session.vars['market_paying_round'] = paying_round
         self.do_grouping()
+        self.treatment = self.config.treatment
         for g in self.get_groups():
             num_players = len(g.get_players())
             type_list = [0] * (num_players // 2) + [1] * (num_players - num_players // 2)
