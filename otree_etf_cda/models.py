@@ -10,7 +10,7 @@ from .bots import ETFMakerBot, pcode_is_bot
 class Constants(BaseConstants):
     name_in_url = 'otree_etf_cda'
     players_per_group = None
-    num_rounds = 3
+    num_rounds = 4
 
 
 class Subsession(markets_models.Subsession):
@@ -41,6 +41,12 @@ class Subsession(markets_models.Subsession):
             paying_round = random.randint(2, self.config.num_rounds)
             self.session.vars['market_paying_round'] = paying_round
         self.do_grouping()
+        for g in self.get_groups():
+            num_players = len(g.get_players())
+            type_list = [0] * (num_players // 2) + [1] * (num_players - num_players // 2)
+            random.shuffle(type_list)
+            for p in g.get_players():
+                p.type = type_list[p.id_in_group - 1]
         if self.config.bots_enabled:
             for group in self.get_groups():
                 group.create_bots()
@@ -100,6 +106,7 @@ class Group(markets_models.Group):
 class Player(markets_models.Player):
 
     score = models.FloatField()
+    type = models.IntegerField()
 
     def check_available(self, is_bid, price, volume, asset_name):
         config = self.subsession.config
@@ -115,10 +122,7 @@ class Player(markets_models.Player):
         for asset_name, structure in self.subsession.config.asset_structure.items():
             endowment = structure['endowment']
             if isinstance(endowment, list):
-                # calculate index into endowments mod length of endowment
-                # this way if there are more players than the length of the array, we wrap back around
-                index = (self.id_in_group-1) % len(endowment)
-                endowments[asset_name] = int(endowment[index])
+                endowments[asset_name] = int(endowment[self.type])
             else:
                 endowments[asset_name] = int(endowment)
         return endowments
