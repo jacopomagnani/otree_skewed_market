@@ -2,9 +2,10 @@
 # all endowments can be specified either as a single number or a list of endowments, one for each player in each group
 # if an endowment list is shorter than the number of players in the group, endowments wrap back around to the beginning
 
-treatment: this
+treatment: SU
+
 # number of players in each group or null if there's only one group
-players_per_group: 4
+players_per_group: 10
 # starting cash endowment for each player
 initial_points: 500
 # starting cash endowment for each player
@@ -16,7 +17,7 @@ allow_short_cash: false
 # the amount of cash that players are allowed to borrow when short selling
 short_limit_cash: 100
 # the length of the round in seconds
-period_length: 20
+period_length: 300
 # a multiplier used to change the way currency is displayed to players.
 # prices are integers, so all prices are divided by this number before being shown to players.
 # a scale of 1000 means that the smallest price a player can enter is 1/1000 or 0.001.
@@ -38,18 +39,18 @@ asset_structure:
     # whether or not this is an etf asset
     is_etf: false
     # initial endowment of this asset
-    endowment: [5, 6]
+    endowment: [11, 9]
     # the state-dependent payoffs for this asset
     # only specified when asset ISN'T an etf
-    payoffs: [200, 60]
+    payoffs: [156, 84]
     probabilities: [50, 50]
   Y:
     allow_short: false
     short_limit: 10
     is_etf: false
-    endowment: [6, 5]
-    payoffs: [100, 80 ]
-    probabilities: [ 70, 30]
+    endowment: [0, 2]
+    payoffs: [277, 112 ]
+    probabilities: [ 5, 95]
   Z:
     allow_short: true
     short_limit: 5

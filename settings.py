@@ -6,7 +6,7 @@ SESSION_CONFIGS = [
         display_name='Market Experiment',
         num_demo_participants=4,
         app_sequence=['introduction', 'market_intro', 'otree_etf_cda', 'smpl', 'questionnaire', 'finalpage'],
-        session_config='demo.txt',
+        session_config='demo1.txt',
     ),
     # dict(
     #    name='public_goods',

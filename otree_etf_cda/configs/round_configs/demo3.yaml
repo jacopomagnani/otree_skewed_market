@@ -3,7 +3,7 @@
 # if an endowment list is shorter than the number of players in the group, endowments wrap back around to the beginning
 
 # number of players in each group or null if there's only one group
-players_per_group: 2
+players_per_group: 4
 # starting cash endowment for each player
 initial_points: 500
 # starting cash endowment for each player
