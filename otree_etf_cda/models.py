@@ -38,7 +38,7 @@ class Subsession(markets_models.Subsession):
         if self.round_number > self.config.num_rounds:
             return
         if self.round_number == 1:
-            paying_round = random.randint(1, self.config.num_rounds)
+            paying_round = random.randint(2, self.config.num_rounds)
             self.session.vars['market_paying_round'] = paying_round
         self.do_grouping()
         if self.config.bots_enabled:
