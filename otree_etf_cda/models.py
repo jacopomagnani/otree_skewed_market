@@ -49,8 +49,8 @@ class Subsession(markets_models.Subsession):
 
 class Group(markets_models.Group):
 
-    state_a = models.IntegerField()
-    state_b = models.IntegerField()
+    state_x = models.IntegerField()
+    state_y = models.IntegerField()
 
     def get_player(self, pcode):
         if pcode_is_bot(pcode):
@@ -73,8 +73,8 @@ class Group(markets_models.Group):
     
     def do_realized_state_draw(self):
         structure = self.subsession.config.asset_structure
-        self.state_a = random.choices([0, 1], weights=structure["X"]["probabilities"], k=1)[0]
-        self.state_b = random.choices([0, 1], weights=structure["Y"]["probabilities"], k=1)[0]
+        self.state_x = random.choices([0, 1], weights=structure["X"]["probabilities"], k=1)[0]
+        self.state_y = random.choices([0, 1], weights=structure["Y"]["probabilities"], k=1)[0]
 
     def set_payoffs(self):
         self.do_realized_state_draw()
@@ -137,8 +137,8 @@ class Player(markets_models.Player):
     def set_payoff(self):
         config = self.subsession.config
         structure = config.asset_structure
-        value_x = structure["X"]["payoffs"][self.group.state_a]
-        value_y = structure["Y"]["payoffs"][self.group.state_b]
+        value_x = structure["X"]["payoffs"][self.group.state_x]
+        value_y = structure["Y"]["payoffs"][self.group.state_y]
         value_z = structure["Z"]["payoffs"][0]
         self.score = value_x * self.settled_assets["X"] + value_y * self.settled_assets["Y"] + value_z * self.settled_assets["Z"]
         # add cash gains/losses
