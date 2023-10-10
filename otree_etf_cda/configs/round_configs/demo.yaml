@@ -2,18 +2,21 @@
 # all endowments can be specified either as a single number or a list of endowments, one for each player in each group
 # if an endowment list is shorter than the number of players in the group, endowments wrap back around to the beginning
 
+treatment: this
 # number of players in each group or null if there's only one group
 players_per_group: 2
 # starting cash endowment for each player
-cash_endowment: 1000
+initial_points: 500
+# starting cash endowment for each player
+cash_endowment: 200
 # the amount of the endowment which is a loan
 loan_value: 0
 # whether or not players are allowed to have negative available cash
-allow_short_cash: true
+allow_short_cash: false
 # the amount of cash that players are allowed to borrow when short selling
 short_limit_cash: 100
 # the length of the round in seconds
-period_length: 360
+period_length: 20
 # a multiplier used to change the way currency is displayed to players.
 # prices are integers, so all prices are divided by this number before being shown to players.
 # a scale of 1000 means that the smallest price a player can enter is 1/1000 or 0.001.
@@ -21,26 +24,12 @@ period_length: 360
 currency_scale: 1
 # whether or not arbitrage bots are enabled
 bots_enabled: false
-# the round which is counted for final payoff
-pay_round: 2
 
-# this field lists all the possible states and their relative probability of occuring.
-# the probability for each state is calculated as that state's prob_weight divided by
-# the sum of prob_weight across all states
-states:
-  X:
-    prob_weight: 25
-  Y:
-    prob_weight: 25
-  Z:
-    prob_weight: 475
-  W:
-    prob_weight: 475
 
 # this field describes the asset structure for the round
 asset_structure:
   # name of the asset
-  A:
+  X:
     # whether the player be allowed to hold negative quantities of this asset
     allow_short: false
     # the maximum amount of this asset a player is allowed to borrow for short selling
@@ -49,32 +38,22 @@ asset_structure:
     # whether or not this is an etf asset
     is_etf: false
     # initial endowment of this asset
-    endowment: [5, 3]
+    endowment: [5, 6]
     # the state-dependent payoffs for this asset
     # only specified when asset ISN'T an etf
-    payoffs:
-      X: 318
-      Y: 318
-      Z: 89
-      W: 89
-  B:
+    payoffs: [200, 60]
+    probabilities: [50, 50]
+  Y:
     allow_short: false
     short_limit: 10
     is_etf: false
-    endowment: [80, 100]
-    payoffs:
-      X: 120
-      Y: 80
-      Z: 120
-      W: 80
-  C:
+    endowment: [6, 5]
+    payoffs: [100, 80 ]
+    probabilities: [ 70, 30]
+  Z:
     allow_short: true
-    short_limit: 10
+    short_limit: 5
     is_etf: false
     endowment: [0, 0]
-    payoffs:
-      X: 100
-      Y: 100
-      Z: 100
-      W: 100
-
+    payoffs: [ 100 ]
+    probabilities: [ 100 ]
