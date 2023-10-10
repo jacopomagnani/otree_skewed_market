@@ -57,8 +57,7 @@ class Results(Page):
             'final_cash': final_cash,
             'X_payoff': value_x,
             'Y_payoff': value_y,
-            'Z_payoff': value_z,
-            'net_payoff': self.player.score - config.initial_points
+            'Z_payoff': value_z
         }
 
 

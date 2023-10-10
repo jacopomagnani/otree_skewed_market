@@ -12,7 +12,7 @@
             {% for asset_name in player.settled_assets.keys %}
             <th scope="col">Actif {{ asset_name }}</th>
             {% endfor %}
-            <th scope="col">Argent</th>
+            <th scope="col">Argent effectif</th>
         </tr>
         <tr>
             <th scope="row">Votre position</th>
@@ -25,23 +25,19 @@
 
 
     <div>
-        <span class="font-weight-bold">Gain pour chaque unité de l'actif X:</span>
+        <span class="font-weight-bold">Gain final pour chaque unité de l'actif X:</span>
         <span> {{X_payoff}}</span>
     </div>
     <div>
-        <span class="font-weight-bold">Gain pour chaque unité de l'actif Y:</span>
+        <span class="font-weight-bold">Gain final pour chaque unité de l'actif Y:</span>
         <span> {{Y_payoff}}</span>
     </div>
     <div>
-        <span class="font-weight-bold">Gain pour chaque unité de l'actif Z:</span>
+        <span class="font-weight-bold">Gain final pour chaque unité de l'actif Z:</span>
         <span> {{Z_payoff}}</span>
     </div>
     <div class="mb-4">
-        <span class="font-weight-bold">Gains provenant de votre position :</span>
-        <span>{{net_payoff}}</span>
-    </div>
-    <div class="mb-4">
-        <span class="font-weight-bold">Gains plus réserve de cash:</span>
+        <span class="font-weight-bold">Score final incluant la réserve de cash:</span>
         <span>{{player.score}}</span>
     </div>
 
