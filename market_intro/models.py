@@ -97,9 +97,6 @@ class Player(BasePlayer):
             if self.in_round(i).answer == Constants.questions_list[i - 1]["correct_answer"]:
                 k = k + 1
         self.num_correct = k
-        if self.num_correct == Constants.num_rounds:
-            self.score = 100
-        else:
-            self.score = 0
+        self.score = self.num_correct * 0.25
         self.payoff = c(self.score)
         self.participant.vars['quiz_score'] = self.score

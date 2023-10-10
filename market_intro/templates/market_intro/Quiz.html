@@ -7,7 +7,11 @@
 
 {% block content %}
 
-<p>Avant de poursuivre, veuillez répondre aux questions suivantes.</p>
+{% if subsession.round_number == 1 %}
+<p>Avant de poursuivre, veuillez répondre aux questions suivantes.
+    Vous recevrez un bonus de 0.25 euro pour chaque réponse correcte qui s’ajoutera à vos gains à la fin de l’expérience.
+</p>
+{% endif %}
 
 <table>
   <tr>
