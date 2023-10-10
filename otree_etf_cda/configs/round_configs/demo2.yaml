@@ -4,7 +4,7 @@
 
 treatment: this
 # number of players in each group or null if there's only one group
-players_per_group: 4
+players_per_group: 2
 # starting cash endowment for each player
 initial_points: 500
 # starting cash endowment for each player
