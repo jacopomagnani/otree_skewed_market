@@ -83,7 +83,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    score = models.IntegerField()
+    score = models.FloatField()
 
     answer = models.IntegerField(
         widget=widgets.RadioSelect
