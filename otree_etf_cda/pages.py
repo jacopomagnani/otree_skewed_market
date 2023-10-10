@@ -72,5 +72,8 @@ class FinalResult(Page):
             'market_payoff': self.participant.vars['market_score']
         }
 
+    def app_after_this_page(self, upcoming_apps):
+        return upcoming_apps[0]
+
 
 page_sequence = [Intro, Market, ResultsWaitPage, Results, FinalResult]
