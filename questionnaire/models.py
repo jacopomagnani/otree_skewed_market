@@ -78,7 +78,7 @@ class Constants(BaseConstants):
             'correct_answer': 'Plus de 102 euros'
         },
         {
-            'question': 'Imaginez que le taux d’intérêt sur votre compte épargne soit de 1 % par an et que l’inflation soit de 2 % par an. Au bout d’1 an, l’argent disponible sur ce compte vous permettra acheter...',
+            'question': 'Imaginez que le taux d’intérêt sur votre compte épargne soit de 1 % par an et que l’inflation soit de 2 % par an. Au bout d’1 an, l’argent disponible sur ce compte vous permettra d’acheter...',
             'answers': ['Plus qu’aujourd’hui', 'Exactement la même chose qu’aujourd’hui', 'Moins qu’aujourd’hui', 'Ne sait pas', 'Refuse de répondre'],
             'correct_answer': 'Moins qu’aujourd’hui'
         },
