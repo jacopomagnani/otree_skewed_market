@@ -41,5 +41,13 @@
         <span>{{player.score}}</span>
     </div>
 
+{% if subsession.round_number == 1 %}
+<p>
+    Ceci était une période d’entraînement et ne peut donc pas être sélectionnée pour calculer vos paiements finaux.
+    A partir de la Période 2, toutes les périodes pourront être sélectionnées pour calculer vos paiements finaux.
+</p>
+{% endif %}
+
+
     {% next_button %}
 {% endblock %}
