@@ -55,7 +55,7 @@ class Constants(BaseConstants):
     ]
     crt_questions = [
         {
-            'question': 'S’il faut 10 mécaniciens pendant 10 heures pour réparer 10 voitures, combien de heures faudrait-il à 80 mécaniciens pour réparer 80 voitures?',
+            'question': 'S’il faut 10 mécaniciens pendant 10 heures pour réparer 10 voitures, combien d’heures faudrait-il à 80 mécaniciens pour réparer 80 voitures?',
             'correct_answer': 10
         },
         {
