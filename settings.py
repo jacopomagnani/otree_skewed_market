@@ -16,6 +16,21 @@ SESSION_CONFIGS = [
     # ),
 ]
 
+ROOMS = [
+    dict(
+        name='experience_A',
+        display_name='experience_A',
+        participant_label_file='_rooms/room.txt',
+        use_secure_urls=False
+    ),
+    dict(
+        name='experience_B',
+        display_name='experience_B',
+        participant_label_file='_rooms/room.txt',
+        use_secure_urls=False
+    ),
+]
+
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
 # the session config can be accessed from methods in your apps as self.session.config,
