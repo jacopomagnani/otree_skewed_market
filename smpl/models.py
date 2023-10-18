@@ -25,7 +25,9 @@ class Constants(BaseConstants):
     lottery_payoff_big = [100, 100, 50, 100, 100, 50, 100, 100, 50, 100, 100, 50]
     lottery_payoff_small = [50, 0, 0, 50, 0, 0, 50, 0, 0, 50, 0, 0]
     lottery_prob_big = [2.5, 2.5, 2.5, 5, 5, 5, 25, 25, 25, 50, 50, 50]
-    sure_payoffs = range(100, -1, -10)
+    certain_payoff_big = [100, 100, 50, 100, 100, 50, 100, 100, 50, 100, 100, 50]
+    certain_payoff_small = [50, 0, 0, 50, 0, 0, 50, 0, 0, 50, 0, 0]
+    certain_payoff_step = [5, 10, 5, 5, 10, 5, 5, 10, 5, 5, 10, 5]
 
 
 class Subsession(BaseSubsession):
@@ -48,8 +50,11 @@ class Player(BasePlayer):
         paying_round = self.participant.vars['mpl_paying_round']
         paying_row = self.participant.vars['mpl_paying_row']
         if self.round_number == paying_round:
-            if self.switching_point < Constants.sure_payoffs[paying_row - 1]:
-                self.score = Constants.sure_payoffs[paying_row - 1]
+            sure_payoffs = range(Constants.certain_payoff_big[self.round_number-1],
+                                 Constants.certain_payoff_small[self.round_number - 1]-1,
+                                 -Constants.certain_payoff_step[self.round_number - 1])
+            if self.switching_point < sure_payoffs[paying_row - 1]:
+                self.score = sure_payoffs[paying_row - 1]
             else:
                 this_lottery_payoff_big = Constants.lottery_payoff_big[paying_round - 1]
                 this_lottery_payoff_small = Constants.lottery_payoff_small[paying_round - 1]

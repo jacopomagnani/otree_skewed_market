@@ -14,7 +14,9 @@ class Decide(Page):
     form_fields = ['switching_point']
 
     def vars_for_template(self):
-        return {'left_side_amounts': Constants.sure_payoffs,
+        return {'left_side_amounts': range(Constants.certain_payoff_big[self.round_number-1],
+                                           Constants.certain_payoff_small[self.round_number - 1]-1,
+                                           -Constants.certain_payoff_step[self.round_number - 1]),
                 'lottery_payoff_big': Constants.lottery_payoff_big[self.round_number-1],
                 'lottery_payoff_small': Constants.lottery_payoff_small[self.round_number - 1],
                 'lottery_prob_big': Constants.lottery_prob_big[self.round_number - 1],
@@ -32,13 +34,16 @@ class Results(Page):
     def vars_for_template(self):
         paying_round = self.player.participant.vars['mpl_paying_round']
         paying_row = self.player.participant.vars['mpl_paying_row']
+        sure_payoffs = range(Constants.certain_payoff_big[paying_round - 1],
+                             Constants.certain_payoff_small[paying_round - 1] - 1,
+                             -Constants.certain_payoff_step[paying_round - 1])
         return {
-            'left_side_amounts': Constants.sure_payoffs[paying_row-1],
+            'left_side_amounts': sure_payoffs[paying_row-1],
             'lottery_payoff_big': Constants.lottery_payoff_big[paying_round - 1],
             'lottery_payoff_small': Constants.lottery_payoff_small[paying_round - 1],
             'lottery_prob_big': Constants.lottery_prob_big[paying_round - 1],
             'lottery_prob_small': 100 - Constants.lottery_prob_big[paying_round - 1],
-            'chosen_sure': (self.player.in_round(paying_round).switching_point < Constants.sure_payoffs[paying_row - 1]),
+            'chosen_sure': (self.player.in_round(paying_round).switching_point < sure_payoffs[paying_row - 1]),
             'final_payoff': self.player.in_round(paying_round).score
         }
 
