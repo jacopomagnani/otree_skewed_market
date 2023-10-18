@@ -16,7 +16,7 @@
 <p>Vous pouvez voir les bonnes réponses ci-dessous.</p>
 
 <p>Les réponses correctes sont écrites en caractères <b>gras</b>.
-    Si certaines de vos réponses sont fausses, elles sont <mark>surlignées</mark>.
+    Si certaines de vos réponses sont fausses, elles sont barrées.
 </p>
 
 <table>
@@ -28,7 +28,7 @@
         {% if correct_answer == 1 %}
             <label for= "q1"> <b>{{q1}}</b> </label>
         {% elif actual_answer == 1 %}
-            <label for= "q1"> <mark>{{q1}}</mark> </label>
+            <label for= "q1"> <s>{{q1}}</s> </label>
         {% else %}
         <label for= "q1"> {{q1}} </label>
         {% endif %}
@@ -37,7 +37,7 @@
         {% if correct_answer == 2 %}
             <label for= "q2"> <b>{{q2}}</b> </label>
         {% elif actual_answer == 2 %}
-            <label for= "q2"> <mark>{{q2}}</mark> </label>
+            <label for= "q2"> <s>{{q2}}</s> </label>
         {% else %}
         <label for= "q2"> {{q2}} </label>
         {% endif %}
@@ -46,7 +46,7 @@
         {% if correct_answer == 3 %}
             <label for= "q3"> <b>{{q3}}</b> </label>
         {% elif actual_answer == 3 %}
-            <label for= "q3"> <mark>{{q3}}</mark> </label>
+            <label for= "q3"> <s>{{q3}}</s> </label>
         {% else %}
         <label for= "q3"> {{q3}} </label>
         {% endif %}
@@ -55,7 +55,7 @@
         {% if correct_answer == 4 %}
             <label for= "q4"> <b>{{q4}}</b> </label>
         {% elif actual_answer == 4 %}
-            <label for= "q4"> <mark>{{q4}}</mark> </label>
+            <label for= "q4"> <s>{{q4}}</s> </label>
         {% else %}
         <label for= "q4"> {{q4}} </label>
         {% endif %}
