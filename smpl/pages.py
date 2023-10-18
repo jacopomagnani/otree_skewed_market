@@ -9,6 +9,12 @@ class Instructions(Page):
         return self.subsession.round_number == 1
 
 
+class Attention(Page):
+
+    def is_displayed(self):
+        return self.subsession.round_number > 1
+
+
 class Decide(Page):
     form_model = 'player'
     form_fields = ['switching_point']
@@ -48,4 +54,4 @@ class Results(Page):
         }
 
 
-page_sequence = [Instructions, Decide, Results]
+page_sequence = [Instructions, Attention, Decide, Results]
