@@ -61,7 +61,7 @@ class Constants(BaseConstants):
                           'q2': 'Le nombre de vos actifs effectifs diminue lorsque vous placez une offre d’achat ou de vente.',
                           'q3': 'Le nombre de vos actifs disponibles diminue lorsque vous placez une offre d’achat.',
                           'q4': 'Le nombre de vos actifs disponibles diminue lorsque vous placez une offre de vente.',
-                          'correct_answer': 3
+                          'correct_answer': 4
                       },
                       {
                           'q1': 'Votre montant d’argent disponible et votre montant d’argent effectif sont toujours égaux.',
