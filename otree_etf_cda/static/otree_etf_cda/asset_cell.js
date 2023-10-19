@@ -74,6 +74,19 @@ class AssetCell extends PolymerElement {
                 .buttons > div > * {
                     margin: 5px;
                 }
+                .button1 {font-size: 10px;}
+
+                /* Chrome, Safari, Edge, Opera */
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0;
+                }
+
+                /* Firefox */
+                input[type=number] {
+                  -moz-appearance: textfield;
+                }
             </style>
 
             <otree-constants
@@ -114,13 +127,13 @@ class AssetCell extends PolymerElement {
                 <div class="buttons">
                     <div>
 
-                        <input id="bid_price" type="number" min="0" step="[[price_step]]">
-                        <button type="button" on-click="_enter_order" value="bid">Faire une offre d’achat</button>
+                        <input id="bid_price" type="number" min="0" max="999" step="[[price_step]]" oninput="validity.valid||(value='');">
+                        <button type="button" on-click="_enter_order" value="bid" class="button1">Faire une offre d’achat</button>
                     </div>
                     <div>
 
-                        <input id="ask_price" type="number" min="0" step="[[price_step]]">
-                        <button type="button" on-click="_enter_order" value="ask">Faire une offre de vente</button>
+                        <input id="ask_price" type="number" min="0" max="999" step="[[price_step]]" oninput="validity.valid||(value='');">
+                        <button type="button" on-click="_enter_order" value="ask" class="button1">Faire une offre de vente</button>
                     </div>
                 </div>
             </div>
