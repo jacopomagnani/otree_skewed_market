@@ -4,6 +4,8 @@ import '/static/otree-redwood/src/redwood-period/redwood-period.js';
 
 import '/static/otree_markets/trader_state.js';
 import '/static/otree_markets/simple_modal.js';
+import '/static/otree_markets/ok_modal.js';
+
 import '/static/otree_markets/event_log.js';
 
 import './asset_cell.js';
@@ -108,6 +110,9 @@ class ETFInterface extends PolymerElement {
             <simple-modal
                 id="modal"
             ></simple-modal>
+            <ok-modal
+                id="okmodal"
+            ></ok-modal>
             <trader-state
                 id="trader_state"
                 bids="{{bids}}"
@@ -170,6 +175,7 @@ class ETFInterface extends PolymerElement {
                                 </div>
                             </div>
                         </div>
+
 
                     </div>
 
@@ -260,7 +266,10 @@ class ETFInterface extends PolymerElement {
     // handle an error sent from the backend
     _handle_error(event) {
         const message = event.detail;
-        this.$.log.info(message);
+
+        this.$.okmodal.modal_text = 'Vous ne pouvez pas finaliser cette offre par manque d`argent ou d`actifs.'
+
+        this.$.okmodal.show();
     }
 }
 
